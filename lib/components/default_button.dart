@@ -1,3 +1,4 @@
+import 'package:fhome/components/constants.dart';
 import 'package:fhome/components/size_config.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +21,8 @@ class DefaultButton extends StatelessWidget {
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           // ButtonColor
-          backgroundColor: const Color.fromARGB(255, 204, 151, 215),
+          // backgroundColor: const Color.fromARGB(255, 204, 151, 215),
+          backgroundColor: lightPink,
         ),
         onPressed: press as void Function()?,
         child: Text(

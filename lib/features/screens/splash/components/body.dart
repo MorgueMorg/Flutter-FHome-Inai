@@ -1,5 +1,5 @@
 import 'package:fhome/components/constants.dart';
-import 'package:fhome/features/screens/splash/splash_screen.dart';
+import 'package:fhome/features/screens/sign_in/sign_in_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:fhome/components/default_button.dart';
 import 'package:fhome/components/size_config.dart';
@@ -48,7 +48,7 @@ class _BodyState extends State<Body> {
               child: DefaultButton(
                 text: "Continue",
                 press: () {
-                  Navigator.pushNamed(context, SplashScreen.routeName);
+                  Navigator.pushNamed(context, SignInScreen.routeName);
                 },
               ),
             ),
