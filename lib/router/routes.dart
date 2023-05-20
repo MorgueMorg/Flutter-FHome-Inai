@@ -1,8 +1,10 @@
 import 'package:fhome/features/screens/sign_in/sign_in_screen.dart';
+import 'package:fhome/features/screens/sign_up/sign_up_screen.dart';
 import 'package:fhome/features/screens/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 final Map<String, WidgetBuilder> routes = {
   SplashScreen.routeName: (context) => const SplashScreen(),
-  SignInScreen.routeName:(context) => const SignInScreen(),
+  SignInScreen.routeName: (context) => const SignInScreen(),
+  SignUpScreen.routeName: (context) => const SignUpScreen(),
 };
