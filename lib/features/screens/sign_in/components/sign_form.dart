@@ -2,6 +2,7 @@ import 'package:fhome/components/constants.dart';
 import 'package:fhome/components/default_button.dart';
 import 'package:fhome/components/form_error.dart';
 import 'package:fhome/components/size_config.dart';
+import 'package:fhome/features/screens/login_success/login_success_screen.dart';
 import 'package:flutter/material.dart';
 
 class SignForm extends StatefulWidget {
@@ -78,7 +79,7 @@ class _SignFormState extends State<SignForm> {
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save();
                 // if all are valid then go to success screen
-                // Navigator.pushNamed(context, LoginSuccessScreen.routeName);
+                Navigator.pushNamed(context, LoginSuccessScreen.routeName);
               }
             },
           ),

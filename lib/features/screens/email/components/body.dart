@@ -21,7 +21,7 @@ class Body extends StatelessWidget {
                 "Email Verification",
                 style: headingStyle,
               ),
-              const Text("We sent your code to +*******@gmail.com"),
+              const Text("We sent your code to *******@gmail.com"),
               buildTimer(),
               SizedBox(height: SizeConfig.screenHeight * 0.15), // 10%
               const EmailForm(),
