@@ -54,7 +54,6 @@ class _SignUpFormState extends State<SignUpForm> {
             press: () {
               if (_formKey.currentState!.validate()) {
                 // Go to complete profile page
-                // TODO
                 Navigator.pushNamed(context, CompleteProfileScreen.routeName);
               }
             },

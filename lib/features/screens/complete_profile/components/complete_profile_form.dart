@@ -3,6 +3,7 @@ import 'package:fhome/components/custom_suffix_icon.dart';
 import 'package:fhome/components/default_button.dart';
 import 'package:fhome/components/form_error.dart';
 import 'package:fhome/components/size_config.dart';
+import 'package:fhome/features/screens/email/email_screen.dart';
 import 'package:flutter/material.dart';
 
 class CompleteProfileForm extends StatefulWidget {
@@ -54,9 +55,8 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
           text: "Continue",
           press: () {
             if (_formKey.currentState!.validate()) {
-              // Go to OTP screen
-              // TODO
-              // Navigator.pushNamed(context, OtpScreen.routeName);
+              // Go to Email screen
+              Navigator.pushNamed(context, EmailScreen.routeName);
             }
           },
         )

@@ -1,3 +1,4 @@
+import 'package:fhome/features/screens/complete_profile/components/body.dart';
 import 'package:flutter/material.dart';
 
 class CompleteProfileScreen extends StatelessWidget {
@@ -10,7 +11,7 @@ class CompleteProfileScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Sign Up"),
       ),
-      // body: Body(),
+      body: const Body(),
     );
   }
 }
