@@ -1,3 +1,4 @@
+import 'package:fhome/features/screens/complete_profile/complete_profile_screen.dart';
 import 'package:fhome/features/screens/sign_in/sign_in_screen.dart';
 import 'package:fhome/features/screens/sign_up/sign_up_screen.dart';
 import 'package:fhome/features/screens/splash/splash_screen.dart';
@@ -7,4 +8,5 @@ final Map<String, WidgetBuilder> routes = {
   SplashScreen.routeName: (context) => const SplashScreen(),
   SignInScreen.routeName: (context) => const SignInScreen(),
   SignUpScreen.routeName: (context) => const SignUpScreen(),
+  CompleteProfileScreen.routeName: (context) => const CompleteProfileScreen(),
 };

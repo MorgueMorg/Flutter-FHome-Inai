@@ -19,13 +19,13 @@ class Body extends StatelessWidget {
             children: [
               SizedBox(height: SizeConfig.screenHeight * 0.02), // 2 %
               Text("Register Account", style: headingStyle),
-              Text(
+              const Text(
                 "Complete your details or continue \nwith social media",
                 textAlign: TextAlign.center,
               ),
               SizedBox(
                   height: SizeConfig.screenHeight * 0.07), // 8% of total height
-              SignUpForm(),
+              const SignUpForm(),
               SizedBox(height: SizeConfig.screenHeight * 0.07),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -47,7 +47,7 @@ class Body extends StatelessWidget {
               SizedBox(
                 height: getProportionateScreenHeight(20),
               ),
-              Text(
+              const Text(
                 "By continuing your confirm that you agree \nwith our Term and Condition",
                 textAlign: TextAlign.center,
               )
