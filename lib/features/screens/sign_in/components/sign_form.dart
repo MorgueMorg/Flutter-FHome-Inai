@@ -2,6 +2,7 @@ import 'package:fhome/components/constants.dart';
 import 'package:fhome/components/default_button.dart';
 import 'package:fhome/components/form_error.dart';
 import 'package:fhome/components/size_config.dart';
+import 'package:fhome/features/screens/forgot_password/forgot_password_screen.dart';
 import 'package:fhome/features/screens/login_success/login_success_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -60,8 +61,8 @@ class _SignFormState extends State<SignForm> {
               const Text("Remember me"),
               const Spacer(),
               GestureDetector(
-                // onTap: () => Navigator.pushNamed(
-                //     context, ForgotPasswordScreen.routeName),
+                onTap: () => Navigator.pushNamed(
+                    context, ForgotPasswordScreen.routeName),
                 child: const Text(
                   "Forgot Password",
                   style: TextStyle(decoration: TextDecoration.underline),
