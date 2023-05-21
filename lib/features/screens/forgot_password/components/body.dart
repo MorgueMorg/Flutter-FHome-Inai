@@ -20,19 +20,19 @@ class Body extends StatelessWidget {
           ),
           child: Column(
             children: [
-              SizedBox(
-                height: SizeConfig.screenHeight * 0.04,
-              ),
+              SizedBox(height: SizeConfig.screenHeight * 0.04),
               Text(
-                "Forgot Password",
+                "Восстановление \nпароля",
+                textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: getProportionateScreenWidth(28),
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
                 ),
               ),
+              SizedBox(height: SizeConfig.screenHeight * 0.04),
               const Text(
-                "Please enter your email and we will send \nyou a link to return to your account",
+                "Пожалуйста, введите вашу почту и мы вышлем \nвам ссылку для восстановление вашего пароля",
                 textAlign: TextAlign.center,
               ),
               SizedBox(
@@ -94,8 +94,8 @@ class _ForgotPassFormState extends State<ForgotPassForm> {
               return null;
             },
             decoration: const InputDecoration(
-              labelText: "Email",
-              hintText: "Enter your email",
+              labelText: "Почта",
+              hintText: "Введите вашу почту",
               floatingLabelBehavior: FloatingLabelBehavior.always,
               suffixIcon: CustomSuffixIcon(
                 svgIcon: "assets/icons/Mail.svg",
@@ -110,7 +110,7 @@ class _ForgotPassFormState extends State<ForgotPassForm> {
             height: SizeConfig.screenHeight * 0.1,
           ),
           DefaultButton(
-            text: "Continue",
+            text: "Продолжить",
             press: () {
               if (_formKey.currentState!.validate()) {
                 // Do what you want to do

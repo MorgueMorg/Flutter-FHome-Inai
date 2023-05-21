@@ -50,7 +50,7 @@ class _SignUpFormState extends State<SignUpForm> {
           FormError(errors: errors),
           SizedBox(height: getProportionateScreenHeight(40)),
           DefaultButton(
-            text: "Continue",
+            text: "Продолжить",
             press: () {
               if (_formKey.currentState!.validate()) {
                 // Go to complete profile page
@@ -86,8 +86,8 @@ class _SignUpFormState extends State<SignUpForm> {
         return null;
       },
       decoration: const InputDecoration(
-        labelText: "Confirm Password",
-        hintText: "Re-enter your password",
+        labelText: "Подтверждение пароля",
+        hintText: "Подтвердить пароль",
         // If  you are using latest version of flutter then lable text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -120,8 +120,8 @@ class _SignUpFormState extends State<SignUpForm> {
         return null;
       },
       decoration: const InputDecoration(
-        labelText: "Password",
-        hintText: "Enter your password",
+        labelText: "Пароль",
+        hintText: "Введите ваш пароль",
         // If  you are using latest version of flutter then lable text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -153,8 +153,8 @@ class _SignUpFormState extends State<SignUpForm> {
         return null;
       },
       decoration: const InputDecoration(
-        labelText: "Email",
-        hintText: "Enter your email",
+        labelText: "Почта",
+        hintText: "Введите вашу почту",
         // If  you are using latest version of flutter then lable text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,

@@ -106,7 +106,7 @@ class _EmailFormState extends State<EmailForm> {
           ),
           SizedBox(height: SizeConfig.screenHeight * 0.15),
           DefaultButton(
-            text: "Continue",
+            text: "Продолжить",
             press: () {},
           ),
         ],

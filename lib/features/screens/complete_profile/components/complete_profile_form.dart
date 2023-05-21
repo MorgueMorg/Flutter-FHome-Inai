@@ -52,7 +52,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         FormError(errors: errors),
         SizedBox(height: getProportionateScreenHeight(40)),
         DefaultButton(
-          text: "Continue",
+          text: "Продолжить",
           press: () {
             if (_formKey.currentState!.validate()) {
               // Go to Email screen
@@ -81,8 +81,8 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         return null;
       },
       decoration: const InputDecoration(
-        labelText: "Address",
-        hintText: "Enter your Address",
+        labelText: "Адрес",
+        hintText: "Введите ваш адрес",
         // If  you are using latest version of flutter then lable text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -110,8 +110,8 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         return null;
       },
       decoration: const InputDecoration(
-        labelText: "Phone number",
-        hintText: "Enter your phone number",
+        labelText: "Номер телефона",
+        hintText: "Введите ваш номер телефона",
         // If  you are using latest version of flutter then lable text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -124,8 +124,8 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
     return TextFormField(
       onSaved: (newValue) => lastName = newValue,
       decoration: const InputDecoration(
-        labelText: "Last Name",
-        hintText: "Enter your last name",
+        labelText: "Фамилия",
+        hintText: "Введите вашу фамилию",
         // If  you are using latest version of flutter then lable text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -151,8 +151,8 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         return null;
       },
       decoration: const InputDecoration(
-        labelText: "First Name",
-        hintText: "Enter your first name",
+        labelText: "Имя",
+        hintText: "Введите ваше имя",
         // If  you are using latest version of flutter then lable text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,

@@ -23,6 +23,7 @@ class DefaultButton extends StatelessWidget {
           // ButtonColor
           // backgroundColor: const Color.fromARGB(255, 204, 151, 215),
           backgroundColor: lightPink,
+          // backgroundColor: darkPurple,
         ),
         onPressed: press as void Function()?,
         child: Text(

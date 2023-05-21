@@ -28,7 +28,7 @@ class Body extends StatelessWidget {
           height: SizeConfig.screenHeight * 0.04,
         ),
         Text(
-          "Login Success",
+          "Успешный вход",
           style: TextStyle(
               fontSize: getProportionateScreenWidth(30),
               fontWeight: FontWeight.bold,
@@ -38,7 +38,7 @@ class Body extends StatelessWidget {
         SizedBox(
           width: SizeConfig.screenWidth * 0.6,
           child: DefaultButton(
-            text: "Back to Home",
+            text: "На главную",
             press: () {
               Navigator.pushNamed(context, HomeScreen.routeName);
             },

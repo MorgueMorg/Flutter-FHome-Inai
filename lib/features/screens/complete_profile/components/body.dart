@@ -18,18 +18,18 @@ class Body extends StatelessWidget {
             children: [
               SizedBox(height: SizeConfig.screenHeight * 0.02), // 5%
               Text(
-                "Complete Profile",
+                "Заполнение профиля",
                 style: headingStyle,
               ),
               const Text(
-                "Complete your details or continue\n with social media",
+                "Заполните свои данные или продолжите\n в социальных сетях",
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: SizeConfig.screenHeight * 0.05), // 5%
               const CompleteProfileForm(),
               SizedBox(height: getProportionateScreenHeight(30)),
               const Text(
-                "By continuing your confirm that you agree \nwith our Term and Condition",
+                "Продолжая, вы подтверждаете, что согласны \n с нашими условиями и положением.",
                 textAlign: TextAlign.center,
               ),
             ],

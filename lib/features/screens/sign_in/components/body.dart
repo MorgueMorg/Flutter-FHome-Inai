@@ -23,7 +23,7 @@ class Body extends StatelessWidget {
                   height: SizeConfig.screenHeight * 0.04,
                 ),
                 Text(
-                  "Welcome back",
+                  "С возвращением!",
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: getProportionateScreenWidth(28),
@@ -31,7 +31,7 @@ class Body extends StatelessWidget {
                   ),
                 ),
                 const Text(
-                  "Sign in with your email and password  \nor continue with social media",
+                  "Войдите в систему с помощью электронной почты и пароля или через социальные сети",
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(
