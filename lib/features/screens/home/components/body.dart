@@ -25,9 +25,7 @@ class Body extends StatelessWidget {
                     itemBuilder: (context, index) {
                       final Product singlePost = postList[index];
                       return ListTile(
-                        leading: CircleAvatar(
-                          child: Text(singlePost.id.toString()),
-                        ),
+                        leading: Image.network(singlePost.photo),
                         title: Text(singlePost.title),
                         subtitle: Text(singlePost.description),
                       );
