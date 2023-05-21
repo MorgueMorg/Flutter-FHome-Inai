@@ -1,5 +1,6 @@
 import 'package:fhome/features/cubit/product_fetch_cubit.dart';
 import 'package:fhome/features/screens/home/components/carousel.dart';
+import 'package:fhome/features/screens/home/components/home_header.dart';
 import 'package:fhome/repositories/models/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,6 +13,7 @@ class Body extends StatelessWidget {
     return Center(
       child: Column(
         children: [
+          const HomeHeader(),
           const SizedBox(height: 20),
           const Carousel(),
           const SizedBox(height: 20),
