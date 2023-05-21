@@ -1,3 +1,4 @@
+import 'package:fhome/components/constants.dart';
 import 'package:fhome/components/custom_bottom_nav_bar.dart';
 import 'package:fhome/features/screens/home/components/body.dart';
 import 'package:fhome/service/menu_enums.dart';
@@ -11,10 +12,12 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: const IconThemeData(
+          color: lightPink,
+        ),
         title: const Text("Главная"),
       ),
       body: const Body(),
-      // TODO
       bottomNavigationBar:
           const CustomBottomNavBar(selectedMenu: MenuState.home),
     );
