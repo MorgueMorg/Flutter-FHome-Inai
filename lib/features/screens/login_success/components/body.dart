@@ -15,7 +15,7 @@ class Body extends StatelessWidget {
         // SizedBox(
         //   height: SizeConfig.screenHeight * 0.04,
         // ),
-        Spacer(),
+        const Spacer(),
         Container(
           alignment: Alignment.center, // use aligment
           // color: Color.fromRGBO(0, 96, 91, 1),

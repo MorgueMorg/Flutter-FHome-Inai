@@ -24,10 +24,29 @@ class Body extends StatelessWidget {
                     itemCount: postList.length,
                     itemBuilder: (context, index) {
                       final Product singlePost = postList[index];
-                      return ListTile(
-                        leading: Image.network(singlePost.photo),
-                        title: Text(singlePost.title),
-                        subtitle: Text(singlePost.description),
+                      return Column(
+                        children: [
+                          Container(
+                            height: 150,
+                            child: PageView.builder(
+                                itemBuilder: (context, index) => Container(
+                                    margin:
+                                        EdgeInsets.symmetric(horizontal: 10),
+                                    height: 150,
+                                    child: ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
+                                        child: Image.asset(
+                                          'assets/images/bakery.jpg',
+                                          fit: BoxFit.cover,
+                                        )))),
+                          ),
+                          ListTile(
+                            leading: Image.network(singlePost.photo),
+                            title: Text(singlePost.title),
+                            subtitle: Text(singlePost.description),
+                          ),
+                        ],
                       );
                     },
                   );
