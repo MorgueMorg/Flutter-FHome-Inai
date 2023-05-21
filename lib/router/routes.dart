@@ -14,5 +14,5 @@ final Map<String, WidgetBuilder> routes = {
   CompleteProfileScreen.routeName: (context) => const CompleteProfileScreen(),
   EmailScreen.routeName: (context) => const EmailScreen(),
   LoginSuccessScreen.routeName: (context) => const LoginSuccessScreen(),
-  HomeScreen.routeName: (context) => HomeScreen(),
+  HomeScreen.routeName: (context) => const HomeScreen(),
 };
