@@ -1,5 +1,7 @@
+import 'package:fhome/components/size_config.dart';
 import 'package:fhome/features/cubit/product_fetch_cubit.dart';
 import 'package:fhome/features/screens/home/components/carousel.dart';
+import 'package:fhome/features/screens/home/components/categoires.dart';
 import 'package:fhome/features/screens/home/components/home_header.dart';
 import 'package:fhome/repositories/models/product_model.dart';
 import 'package:flutter/material.dart';
@@ -13,10 +15,13 @@ class Body extends StatelessWidget {
     return Center(
       child: Column(
         children: [
+          SizedBox(height: getProportionateScreenWidth(15)),
           const HomeHeader(),
-          const SizedBox(height: 20),
+          SizedBox(height: getProportionateScreenWidth(30)),
           const Carousel(),
-          const SizedBox(height: 20),
+          SizedBox(height: getProportionateScreenWidth(20)),
+          const Categories(),
+          SizedBox(height: getProportionateScreenWidth(0)),
           BlocBuilder<ProductFetchCubit, ProductFetchState>(
             builder: (context, state) {
               if (state is ProductFetchLoading) {
