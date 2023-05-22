@@ -1,3 +1,4 @@
+import 'package:fhome/components/constants.dart';
 import 'package:fhome/features/screens/details/product_details_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -32,9 +33,10 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Product Details'),
+        title: const Text('Детали'),
       ),
       body: RefreshIndicator(
+        backgroundColor: darkPink,
         onRefresh: _refreshData,
         child: Expanded(
           child: BlocBuilder<ProductDetailsCubit, ProductDetailsState>(
