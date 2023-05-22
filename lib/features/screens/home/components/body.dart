@@ -1,8 +1,9 @@
 import 'package:fhome/components/constants.dart';
 import 'package:fhome/components/size_config.dart';
-import 'package:fhome/features/cubit/product_fetch_cubit.dart';
+import 'package:fhome/features/cubit/productFeature/product_fetch_cubit.dart';
 import 'package:fhome/features/screens/home/components/carousel.dart';
 import 'package:fhome/features/screens/home/components/categoires.dart';
+import 'package:fhome/features/screens/home/components/custom_list_tile.dart';
 import 'package:fhome/features/screens/home/components/home_header.dart';
 import 'package:fhome/repositories/models/product_model.dart';
 import 'package:flutter/material.dart';
@@ -41,7 +42,9 @@ class _FetchBlocProducts extends StatelessWidget {
     return BlocBuilder<ProductFetchCubit, ProductFetchState>(
       builder: (context, state) {
         if (state is ProductFetchLoading) {
-          return const CircularProgressIndicator();
+          return const CircularProgressIndicator(
+            color: lightPink,
+          );
         } else if (state is ProductFetchError) {
           return Text(state.failure.message);
         } else if (state is ProductFetchLoaded) {
@@ -49,6 +52,8 @@ class _FetchBlocProducts extends StatelessWidget {
           return postList.isEmpty
               ? const Text('No any posts')
               : ListView.builder(
+                // ? physics - отключает прокрутку дочернего листвью, чтобы прокручился только основной синглскролл вью, чтобы не было отдельной прокрутки на одном экранеч
+                  physics: const NeverScrollableScrollPhysics(),
                   scrollDirection: Axis.vertical,
                   shrinkWrap: true,
                   padding: const EdgeInsets.all(10),
@@ -66,36 +71,6 @@ class _FetchBlocProducts extends StatelessWidget {
         }
         return const SizedBox.shrink();
       },
-    );
-  }
-}
-
-class CustomListTile extends StatelessWidget {
-  const CustomListTile({
-    super.key,
-    required this.singlePost,
-  });
-
-  final Product singlePost;
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      leading: ClipRRect(
-        borderRadius: BorderRadius.circular(15.0),
-        child: Image.network(
-          singlePost.photo,
-          height: getProportionateScreenHeight(50),
-          width: getProportionateScreenWidth(50),
-        ),
-      ),
-      trailing: Text(
-        singlePost.price.toString(),
-        style: const TextStyle(
-            color: darkPink, fontWeight: FontWeight.w700, fontSize: 16),
-      ),
-      title: Text(singlePost.title),
-      subtitle: Text('${singlePost.description.substring(0, 28)}...'),
     );
   }
 }

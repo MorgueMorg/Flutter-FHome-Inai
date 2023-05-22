@@ -1,4 +1,4 @@
-import 'package:fhome/features/cubit/product_fetch_cubit.dart';
+import 'package:fhome/features/cubit/productFeature/product_fetch_cubit.dart';
 import 'package:fhome/features/screens/splash/splash_screen.dart';
 import 'package:fhome/repositories/product_repository/product_repository.dart';
 import 'package:fhome/router/routes.dart';
