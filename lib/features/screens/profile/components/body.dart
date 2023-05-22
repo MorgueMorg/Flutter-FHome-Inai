@@ -13,27 +13,27 @@ class Body extends StatelessWidget {
         const SizedBox(height: 20),
         ProfileMenu(
           icon: "assets/icons/User Icon.svg",
-          text: "My Account",
+          text: "Аккаунт",
           press: () {},
         ),
         ProfileMenu(
           icon: "assets/icons/Bell.svg",
-          text: "Notifications",
+          text: "Уведомления",
           press: () {},
         ),
         ProfileMenu(
           icon: "assets/icons/Settings.svg",
-          text: "Settings",
+          text: "Настройки",
           press: () {},
         ),
         ProfileMenu(
           icon: "assets/icons/Question mark.svg",
-          text: "Help Center",
+          text: "Тех-поддержка",
           press: () {},
         ),
         ProfileMenu(
           icon: "assets/icons/Log out.svg",
-          text: "Log Out",
+          text: "Выйти",
           press: () {},
         ),
       ],
