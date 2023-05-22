@@ -51,13 +51,6 @@ class CustomBottomNavBar extends StatelessWidget {
                       : inActiveIconColor),
             ),
             IconButton(
-              onPressed: () {},
-              icon: SvgPicture.asset("assets/icons/Chat bubble Icon.svg",
-                  color: MenuState.message == selectedMenu
-                      ? lightPink
-                      : inActiveIconColor),
-            ),
-            IconButton(
               // TODO
               // onPressed: () {
               //   Navigator.pushNamed(context, ProfileScreen.routeName);
