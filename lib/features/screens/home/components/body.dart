@@ -12,49 +12,65 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        children: [
-          SizedBox(height: getProportionateScreenWidth(15)),
-          const HomeHeader(),
-          SizedBox(height: getProportionateScreenWidth(30)),
-          const Carousel(),
-          SizedBox(height: getProportionateScreenWidth(20)),
-          const Categories(),
-          SizedBox(height: getProportionateScreenWidth(0)),
-          BlocBuilder<ProductFetchCubit, ProductFetchState>(
-            builder: (context, state) {
-              if (state is ProductFetchLoading) {
-                return const CircularProgressIndicator();
-              } else if (state is ProductFetchError) {
-                return Text(state.failure.message);
-              } else if (state is ProductFetchLoaded) {
-                final postList = state.productList;
-                return postList.isEmpty
-                    ? const Text('No any posts')
-                    : ListView.builder(
-                        scrollDirection: Axis.vertical,
-                        shrinkWrap: true,
-                        padding: const EdgeInsets.all(10),
-                        itemCount: postList.length,
-                        itemBuilder: (context, index) {
-                          final Product singlePost = postList[index];
-                          return Column(
-                            children: [
-                              ListTile(
-                                leading: Image.network(singlePost.photo),
-                                title: Text(singlePost.title),
-                                subtitle: Text(singlePost.description),
-                              ),
-                            ],
-                          );
-                        },
-                      );
-              }
-              return const SizedBox.shrink();
-            },
-          ),
-        ],
+    return RefreshIndicator(
+        onRefresh: () async {
+          _FetchAllProducts();
+        },
+        child: const _FetchAllProducts());
+  }
+}
+
+class _FetchAllProducts extends StatelessWidget {
+  const _FetchAllProducts();
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Center(
+        child: Column(
+          children: [
+            SizedBox(height: getProportionateScreenWidth(15)),
+            const HomeHeader(),
+            SizedBox(height: getProportionateScreenWidth(30)),
+            const Carousel(),
+            SizedBox(height: getProportionateScreenWidth(20)),
+            const Categories(),
+            SizedBox(height: getProportionateScreenWidth(0)),
+            BlocBuilder<ProductFetchCubit, ProductFetchState>(
+              builder: (context, state) {
+                if (state is ProductFetchLoading) {
+                  return const CircularProgressIndicator();
+                } else if (state is ProductFetchError) {
+                  return Text(state.failure.message);
+                } else if (state is ProductFetchLoaded) {
+                  final postList = state.productList;
+                  return postList.isEmpty
+                      ? const Text('No any posts')
+                      : ListView.builder(
+                          scrollDirection: Axis.vertical,
+                          shrinkWrap: true,
+                          padding: const EdgeInsets.all(10),
+                          itemCount: postList.length,
+                          itemBuilder: (context, index) {
+                            final Product singlePost = postList[index];
+                            return Column(
+                              children: [
+                                ListTile(
+                                  leading: Image.network(singlePost.photo),
+                                  trailing: Text(singlePost.price.toString()),
+                                  title: Text(singlePost.title),
+                                  subtitle: Text(singlePost.description),
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                }
+                return const SizedBox.shrink();
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
