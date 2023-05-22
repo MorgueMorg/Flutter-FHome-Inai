@@ -1,13 +1,15 @@
+import 'package:fhome/repositories/models/login_model.dart';
+import 'package:fhome/service/login_service.dart';
+import 'package:flutter/material.dart';
 import 'package:fhome/components/constants.dart';
 import 'package:fhome/components/default_button.dart';
 import 'package:fhome/components/form_error.dart';
 import 'package:fhome/components/size_config.dart';
 import 'package:fhome/features/screens/forgot_password/forgot_password_screen.dart';
 import 'package:fhome/features/screens/login_success/login_success_screen.dart';
-import 'package:flutter/material.dart';
 
 class SignForm extends StatefulWidget {
-  const SignForm({super.key});
+  const SignForm({Key? key}) : super(key: key);
 
   @override
   // ignore: library_private_types_in_public_api
@@ -18,10 +20,12 @@ class _SignFormState extends State<SignForm> {
   final _formKey = GlobalKey<FormState>();
   String? email;
   String? password;
-  bool? remember = false;
-  final List<String?> errors = [];
+  bool remember = false;
+  final List<String> errors = [];
 
-  void addError({String? error}) {
+  final LoginService loginService = LoginService();
+
+  void addError({required String error}) {
     if (!errors.contains(error)) {
       setState(() {
         errors.add(error);
@@ -29,7 +33,7 @@ class _SignFormState extends State<SignForm> {
     }
   }
 
-  void removeError({String? error}) {
+  void removeError({required String error}) {
     if (errors.contains(error)) {
       setState(() {
         errors.remove(error);
@@ -54,7 +58,7 @@ class _SignFormState extends State<SignForm> {
                 activeColor: darkPink,
                 onChanged: (value) {
                   setState(() {
-                    remember = value;
+                    remember = value!;
                   });
                 },
               ),
@@ -70,17 +74,14 @@ class _SignFormState extends State<SignForm> {
               )
             ],
           ),
-          FormError(
-            errors: errors,
-          ),
+          FormError(errors: errors),
           SizedBox(height: getProportionateScreenHeight(20)),
           DefaultButton(
             text: "Продолжить",
             press: () {
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save();
-                // if all are valid then go to success screen
-                Navigator.pushNamed(context, LoginSuccessScreen.routeName);
+                _loginUser();
               }
             },
           ),
@@ -99,7 +100,6 @@ class _SignFormState extends State<SignForm> {
         } else if (value.length >= 8) {
           removeError(error: kShortPassError);
         }
-        // return null;
       },
       validator: (value) {
         if (value!.isEmpty) {
@@ -114,10 +114,7 @@ class _SignFormState extends State<SignForm> {
       decoration: const InputDecoration(
         labelText: "Пароль",
         hintText: "Введите ваш пароль",
-        // If  you are using latest version of flutter then lable text and hint text shown like this
-        // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
-        // suffixIcon: CustomSuffixIcon(svgIcon: "assets/icons/Lock.svg"),
       ),
     );
   }
@@ -132,7 +129,6 @@ class _SignFormState extends State<SignForm> {
         } else if (emailValidatorRegExp.hasMatch(value)) {
           removeError(error: kInvalidEmailError);
         }
-        // return null;
       },
       validator: (value) {
         if (value!.isEmpty) {
@@ -147,11 +143,24 @@ class _SignFormState extends State<SignForm> {
       decoration: const InputDecoration(
         labelText: "Почта",
         hintText: "Введите вашу почту",
-        // If  you are using latest version of flutter then lable text and hint text shown like this
-        // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
-        // suffixIcon: CustomSuffixIcon(svgIcon: "assets/icons/Mail.svg"),
       ),
     );
+  }
+
+  Future<void> _loginUser() async {
+    AuthModel authModel = AuthModel(email: email!, password: password!);
+
+    bool isAuthenticated = await loginService.login(authModel);
+
+    if (isAuthenticated) {
+      // ignore: use_build_context_synchronously
+      Navigator.pushNamed(context, LoginSuccessScreen.routeName);
+    } else {
+      // ignore: use_build_context_synchronously
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Ошибка авторизации")),
+      );
+    }
   }
 }
