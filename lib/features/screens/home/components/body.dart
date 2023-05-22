@@ -1,3 +1,4 @@
+import 'package:fhome/components/constants.dart';
 import 'package:fhome/components/size_config.dart';
 import 'package:fhome/features/cubit/product_fetch_cubit.dart';
 import 'package:fhome/features/screens/home/components/carousel.dart';
@@ -12,19 +13,6 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RefreshIndicator(
-        onRefresh: () async {
-          _FetchAllProducts();
-        },
-        child: const _FetchAllProducts());
-  }
-}
-
-class _FetchAllProducts extends StatelessWidget {
-  const _FetchAllProducts();
-
-  @override
-  Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Center(
         child: Column(
@@ -36,42 +24,77 @@ class _FetchAllProducts extends StatelessWidget {
             SizedBox(height: getProportionateScreenWidth(20)),
             const Categories(),
             SizedBox(height: getProportionateScreenWidth(0)),
-            BlocBuilder<ProductFetchCubit, ProductFetchState>(
-              builder: (context, state) {
-                if (state is ProductFetchLoading) {
-                  return const CircularProgressIndicator();
-                } else if (state is ProductFetchError) {
-                  return Text(state.failure.message);
-                } else if (state is ProductFetchLoaded) {
-                  final postList = state.productList;
-                  return postList.isEmpty
-                      ? const Text('No any posts')
-                      : ListView.builder(
-                          scrollDirection: Axis.vertical,
-                          shrinkWrap: true,
-                          padding: const EdgeInsets.all(10),
-                          itemCount: postList.length,
-                          itemBuilder: (context, index) {
-                            final Product singlePost = postList[index];
-                            return Column(
-                              children: [
-                                ListTile(
-                                  leading: Image.network(singlePost.photo),
-                                  trailing: Text(singlePost.price.toString()),
-                                  title: Text(singlePost.title),
-                                  subtitle: Text(singlePost.description),
-                                ),
-                              ],
-                            );
-                          },
-                        );
-                }
-                return const SizedBox.shrink();
-              },
-            ),
+            const _FetchBlocProducts(),
           ],
         ),
       ),
+    );
+  }
+}
+
+class _FetchBlocProducts extends StatelessWidget {
+  const _FetchBlocProducts();
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<ProductFetchCubit, ProductFetchState>(
+      builder: (context, state) {
+        if (state is ProductFetchLoading) {
+          return const CircularProgressIndicator();
+        } else if (state is ProductFetchError) {
+          return Text(state.failure.message);
+        } else if (state is ProductFetchLoaded) {
+          final postList = state.productList;
+          return postList.isEmpty
+              ? const Text('No any posts')
+              : ListView.builder(
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  padding: const EdgeInsets.all(10),
+                  itemCount: postList.length,
+                  itemBuilder: (context, index) {
+                    final Product singlePost = postList[index];
+                    return Column(
+                      children: [
+                        SizedBox(height: getProportionateScreenHeight(20)),
+                        CustomListTile(singlePost: singlePost),
+                      ],
+                    );
+                  },
+                );
+        }
+        return const SizedBox.shrink();
+      },
+    );
+  }
+}
+
+class CustomListTile extends StatelessWidget {
+  const CustomListTile({
+    super.key,
+    required this.singlePost,
+  });
+
+  final Product singlePost;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: ClipRRect(
+        borderRadius: BorderRadius.circular(15.0),
+        child: Image.network(
+          singlePost.photo,
+          height: getProportionateScreenHeight(50),
+          width: getProportionateScreenWidth(50),
+        ),
+      ),
+      trailing: Text(
+        singlePost.price.toString(),
+        style: const TextStyle(
+            color: darkPink, fontWeight: FontWeight.w700, fontSize: 16),
+      ),
+      title: Text(singlePost.title),
+      subtitle: Text('${singlePost.description.substring(0, 28)}...'),
     );
   }
 }
