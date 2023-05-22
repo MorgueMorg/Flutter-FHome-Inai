@@ -1,5 +1,5 @@
 import 'package:fhome/features/cubit/productFeature/product_fetch_cubit.dart';
-import 'package:fhome/features/screens/details/product_details_cubit.dart';
+import 'package:fhome/features/cubit/productDetails/product_details_cubit.dart';
 import 'package:fhome/features/screens/details/product_details_screen.dart';
 import 'package:fhome/features/screens/splash/splash_screen.dart';
 import 'package:fhome/repositories/product_repository/product_repository.dart';

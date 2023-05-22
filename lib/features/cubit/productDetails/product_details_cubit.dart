@@ -1,7 +1,7 @@
 // ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
-import 'package:fhome/features/screens/details/product_api.dart';
 import 'package:fhome/repositories/models/product_model.dart';
+import 'package:fhome/service/detail_service.dart';
 
 class ProductDetailsCubit extends Cubit<ProductDetailsState> {
   final ProductApi _productApi = ProductApi();
