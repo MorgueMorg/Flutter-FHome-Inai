@@ -39,15 +39,6 @@ class CustomListTile extends StatelessWidget {
           ),
         );
       },
-      // onTap: () {
-      //   Navigator.pushNamed(
-      //     context,
-      //     ProductDetailsScreen.routeName,
-      //   );
-      //   // Navigator.of(context).pushNamed(
-      //   //   ProductDetailsScreen.routeName,
-      //   // );
-      // },
     );
   }
 }

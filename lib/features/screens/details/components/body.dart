@@ -1,3 +1,5 @@
+import 'package:fhome/components/default_button.dart';
+import 'package:fhome/components/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fhome/components/constants.dart';
@@ -48,12 +50,57 @@ class _ProductDetailsBodyState extends State<ProductDetailsBody> {
                   final product = state.product;
                   return ListView(
                     children: [
-                      ListTile(
-                        trailing: Image.network(product.photo),
-                        title: Text('Product Name: ${product.title}'),
-                        subtitle: Text('Product ID: ${product.id}'),
-                      ),
-                      // Add more ListTile widgets for displaying other product details
+                      Center(
+                        child: Column(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(15.0),
+                              child: Image.network(
+                                product.photo,
+                                height: getProportionateScreenHeight(300),
+                                width: getProportionateScreenWidth(300),
+                              ),
+                            ),
+                            SizedBox(
+                              height: getProportionateScreenHeight(10),
+                            ),
+                            Text(
+                              product.title,
+                              style: headingStyle,
+                              textAlign: TextAlign.center,
+                            ),
+                            SizedBox(
+                              height: getProportionateScreenHeight(20),
+                            ),
+                            Text(
+                              "${product.price} som",
+                              style: const TextStyle(
+                                  color: lightPink,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 24),
+                            ),
+                            SizedBox(
+                              height: getProportionateScreenHeight(20),
+                            ),
+                            Text(
+                              product.description,
+                              style: const TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.w400),
+                              textAlign: TextAlign.center,
+                            ),
+                            SizedBox(
+                              height: getProportionateScreenHeight(50),
+                            ),
+                            SizedBox(
+                              width: SizeConfig.screenWidth * 0.7,
+                              child: DefaultButton(
+                                text: "Купить",
+                                press: () {},
+                              ),
+                            )
+                          ],
+                        ),
+                      )
                     ],
                   );
                 } else if (state is ProductDetailsError) {
