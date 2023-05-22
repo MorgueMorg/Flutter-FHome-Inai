@@ -21,4 +21,15 @@ class Product {
       price: map['price'] as int,
     );
   }
+
+  // Model for details
+  factory Product.fromJson(Map<String, dynamic> json) {
+    return Product(
+      id: json['id'] as int,
+      title: json['title'] as String,
+      description: json['description'] as String,
+      photo: json['photo'] as String,
+      price: json['price'] as int,
+    );
+  }
 }

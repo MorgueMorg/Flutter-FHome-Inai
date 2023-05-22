@@ -1,5 +1,6 @@
 import 'package:fhome/features/screens/profile/components/profile_menu.dart';
 import 'package:fhome/features/screens/profile/components/profile_pic.dart';
+import 'package:fhome/features/screens/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 class Body extends StatelessWidget {
@@ -34,7 +35,9 @@ class Body extends StatelessWidget {
         ProfileMenu(
           icon: "assets/icons/Log out.svg",
           text: "Выйти",
-          press: () {},
+          press: () {
+            Navigator.pushNamed(context, SplashScreen.routeName);
+          },
         ),
       ],
     );

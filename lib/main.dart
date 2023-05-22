@@ -1,4 +1,6 @@
 import 'package:fhome/features/cubit/productFeature/product_fetch_cubit.dart';
+import 'package:fhome/features/cubit/productDetails/product_details_cubit.dart';
+import 'package:fhome/features/screens/details/product_details_screen.dart';
 import 'package:fhome/features/screens/splash/splash_screen.dart';
 import 'package:fhome/repositories/product_repository/product_repository.dart';
 import 'package:fhome/router/routes.dart';
@@ -28,6 +30,11 @@ class MyApp extends StatelessWidget {
               apiService: apiService,
             ),
           )..fetchProductApi(),
+        ),
+        BlocProvider(
+          create: (context) => ProductDetailsCubit(),
+          // ! Просит аргумент, но он ни на что не влияет.
+          child: const ProductDetailsScreen(productId: 0),
         ),
       ],
       child: MaterialApp(

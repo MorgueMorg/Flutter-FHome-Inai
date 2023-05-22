@@ -1,9 +1,10 @@
 import 'package:fhome/components/constants.dart';
 import 'package:fhome/components/default_button.dart';
 import 'package:fhome/components/size_config.dart';
+import 'package:fhome/features/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
-class EmailForm extends StatefulWidget { 
+class EmailForm extends StatefulWidget {
   const EmailForm({super.key});
 
   @override
@@ -107,7 +108,9 @@ class _EmailFormState extends State<EmailForm> {
           SizedBox(height: SizeConfig.screenHeight * 0.15),
           DefaultButton(
             text: "Продолжить",
-            press: () {},
+            press: () {
+              Navigator.pushNamed(context, HomeScreen.routeName);
+            },
           ),
         ],
       ),
