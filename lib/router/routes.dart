@@ -1,5 +1,5 @@
 import 'package:fhome/features/screens/complete_profile/complete_profile_screen.dart';
-// import 'package:fhome/features/screens/details/details_screen.dart';
+import 'package:fhome/features/screens/details/product_details_screen.dart';
 import 'package:fhome/features/screens/email/email_screen.dart';
 import 'package:fhome/features/screens/forgot_password/forgot_password_screen.dart';
 import 'package:fhome/features/screens/home/home_screen.dart';
@@ -20,5 +20,7 @@ final Map<String, WidgetBuilder> routes = {
   HomeScreen.routeName: (context) => const HomeScreen(),
   ForgotPasswordScreen.routeName: (context) => const ForgotPasswordScreen(),
   ProfileScreen.routeName: (context) => const ProfileScreen(),
-  // DetailsScreen.routeName: (context) => DetailsScreen(),
+  // ! Просит productId, но тоже ни на что не влияет
+  ProductDetailsScreen.routeName: (context) =>
+      const ProductDetailsScreen(productId: 1),
 };
