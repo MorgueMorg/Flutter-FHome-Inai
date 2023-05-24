@@ -45,6 +45,15 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         buildFirstNameFormField(),
         SizedBox(height: getProportionateScreenHeight(30)),
         buildLastNameFormField(),
+        // DOBInputField(
+        //   firstDate: DateTime(1900),
+        //   lastDate: DateTime.now(),
+        //   showLabel: true,
+        //   errorFormatText: "Неверный формат даты рождения",
+        //   errorInvalidText: "Некорректная дата рождения",
+        //   dateFormatType: DateFormatType.DDMMYYYY,
+        //   fieldLabelText: "Дата рождения",
+        // ),
         SizedBox(height: getProportionateScreenHeight(30)),
         buildPhoneNumberFormField(),
         SizedBox(height: getProportionateScreenHeight(30)),
@@ -152,7 +161,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
       },
       decoration: const InputDecoration(
         labelText: "Имя",
-        hintText: "Введите ваше имя",
+        hintText: "Введите ваше полное имя",
         // If  you are using latest version of flutter then lable text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,

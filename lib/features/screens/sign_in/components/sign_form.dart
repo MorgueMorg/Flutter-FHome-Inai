@@ -159,7 +159,8 @@ class _SignFormState extends State<SignForm> {
     } else {
       // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Ошибка авторизации")),
+        const SnackBar(
+            content: Text("Ошибка авторизации"), backgroundColor: darkPink),
       );
     }
   }

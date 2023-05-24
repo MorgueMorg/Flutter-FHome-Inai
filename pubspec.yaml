@@ -35,6 +35,7 @@ dependencies:
   flutter_bloc: ^8.0.1
   equatable: ^2.0.3
   dio: ^4.0.4
+  # dob_input_field: ^2.0.0
 
 dev_dependencies:
   flutter_test:
