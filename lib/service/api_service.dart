@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:fhome/components/api_constants.dart';
 import 'package:fhome/repositories/models/failure_model.dart';
 
 class ApiService {
@@ -8,8 +9,7 @@ class ApiService {
 
   Future<Response?> getProductData() async {
     try {
-      final Response response =
-          await _dio.get('https://fhome.onrender.com/api/product');
+      final Response response = await _dio.get('$baseUrl/product');
       return response;
     } on SocketException {
       throw const Failure(message: 'No Internet Connection');

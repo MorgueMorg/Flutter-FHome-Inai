@@ -69,7 +69,8 @@ class _FetchBlocProducts extends StatelessWidget {
         } else if (state is ProductFetchLoaded) {
           final postList = state.productList;
           return postList.isEmpty
-              ? const Text('No any posts')
+              ? const Text('Извините, \nв данный момент продуктов нет.',
+                  textAlign: TextAlign.center)
               : ListView.builder(
                   // ? physics - отключает прокрутку дочернего листвью, чтобы прокручился только основной синглскролл вью, чтобы не было отдельной прокрутки на одном экранеч
                   physics: const NeverScrollableScrollPhysics(),

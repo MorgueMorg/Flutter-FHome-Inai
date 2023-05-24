@@ -1,7 +1,7 @@
 import 'package:fhome/components/constants.dart';
 import 'package:fhome/features/screens/home/home_screen.dart';
 import 'package:fhome/features/screens/profile/profile_screen.dart';
-import 'package:fhome/service/menu_enums.dart';
+import 'package:fhome/components/menu_enums.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
