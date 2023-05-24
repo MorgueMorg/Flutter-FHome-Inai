@@ -39,8 +39,7 @@ class _BodyState extends State<Body> {
             SizedBox(
               height: getProportionateScreenHeight(250),
               width: getProportionateScreenWidth(250),
-              child: Image.network(
-                  "https://i.pinimg.com/originals/40/81/c4/4081c4ff3340d61bd861edb0659a9bd1.gif"),
+              child: Image.asset("assets/images/giphycake.webp"),
             ),
             const SizedBox(height: 15),
             SizedBox(

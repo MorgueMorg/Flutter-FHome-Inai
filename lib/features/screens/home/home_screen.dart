@@ -1,7 +1,7 @@
 import 'package:fhome/components/constants.dart';
 import 'package:fhome/components/custom_bottom_nav_bar.dart';
 import 'package:fhome/features/screens/home/components/body.dart';
-import 'package:fhome/service/menu_enums.dart';
+import 'package:fhome/components/menu_enums.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {

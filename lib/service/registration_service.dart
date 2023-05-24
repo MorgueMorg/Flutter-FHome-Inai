@@ -1,14 +1,14 @@
 import 'package:dio/dio.dart';
 import 'package:fhome/repositories/models/registration_model.dart';
 
-class RegistrationService {
-  static const baseUrl = 'https://fhome.onrender.com/api/user';
+import '../components/api_constants.dart';
 
+class RegistrationService {
   Dio dio = Dio();
 
   Future<bool> register(RegistrationModel registrationModel) async {
     try {
-      final response = await dio.post('$baseUrl/registration',
+      final response = await dio.post('$baseUrl/user/registration',
           data: registrationModel.toJson());
       if (response.statusCode == 200) {
         // Успешная регистрация
