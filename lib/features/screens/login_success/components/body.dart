@@ -19,13 +19,8 @@ class Body extends StatelessWidget {
         Container(
           alignment: Alignment.center, // use aligment
           // color: Color.fromRGBO(0, 96, 91, 1),
-          child: Image.network(
-              // "https://cdn-icons-png.flaticon.com/512/5251/5251301.png",
-              "https://i0.wp.com/flowingedge.com/wp-content/uploads/2021/07/check-pink.png?fit=400%2C400&ssl=1",
-              // "https://handboundcostumes.co.uk/wp-content/uploads/2020/02/pink-tick.jpg",
-              height: 200,
-              width: 200,
-              fit: BoxFit.cover),
+          child: Image.asset("assets/images/complete_pink.webp",
+              height: 250, width: 250, fit: BoxFit.cover),
         ),
         const Spacer(),
         Text(

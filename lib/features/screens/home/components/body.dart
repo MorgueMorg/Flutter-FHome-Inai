@@ -2,7 +2,7 @@ import 'package:fhome/components/constants.dart';
 import 'package:fhome/components/size_config.dart';
 import 'package:fhome/features/cubit/productFeature/product_fetch_cubit.dart';
 import 'package:fhome/features/screens/home/components/carousel.dart';
-import 'package:fhome/features/screens/home/components/categoires.dart';
+import 'package:fhome/features/screens/home/components/categories.dart';
 import 'package:fhome/features/screens/home/components/custom_list_tile.dart';
 import 'package:fhome/features/screens/home/components/home_header.dart';
 import 'package:fhome/repositories/models/product_model.dart';

@@ -1,5 +1,7 @@
 import 'package:fhome/components/constants.dart';
 import 'package:fhome/components/size_config.dart';
+import 'package:fhome/features/screens/home/components/categories_details.dart';
+import 'package:fhome/features/screens/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -53,7 +55,9 @@ class CategoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: press,
+      onTap: () {
+        Navigator.pushNamed(context, CategoriesDetails.routeName);
+      },
       child: Padding(
         padding: const EdgeInsets.only(right: 15),
         child: SizedBox(

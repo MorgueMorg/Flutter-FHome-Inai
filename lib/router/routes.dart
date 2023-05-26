@@ -2,6 +2,7 @@ import 'package:fhome/features/screens/complete_profile/complete_profile_screen.
 import 'package:fhome/features/screens/details/product_details_screen.dart';
 import 'package:fhome/features/screens/email/email_screen.dart';
 import 'package:fhome/features/screens/forgot_password/forgot_password_screen.dart';
+import 'package:fhome/features/screens/home/components/categories_details.dart';
 import 'package:fhome/features/screens/home/home_screen.dart';
 import 'package:fhome/features/screens/login_success/login_success_screen.dart';
 import 'package:fhome/features/screens/profile/profile_screen.dart';
@@ -23,4 +24,5 @@ final Map<String, WidgetBuilder> routes = {
   // ! Просит productId, но тоже ни на что не влияет
   ProductDetailsScreen.routeName: (context) =>
       const ProductDetailsScreen(productId: 1),
+  CategoriesDetails.routeName: (context) => const CategoriesDetails(),
 };
