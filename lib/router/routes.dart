@@ -24,5 +24,7 @@ final Map<String, WidgetBuilder> routes = {
   // ! Просит productId, но тоже ни на что не влияет
   ProductDetailsScreen.routeName: (context) =>
       const ProductDetailsScreen(productId: 1),
-  CategoriesDetails.routeName: (context) => const CategoriesDetails(),
+  // ! Закончить, когда будет готова апишка под категории
+  // CategoriesDetails.routeName: (context) => CategoriesDetails(categoryId: 1),
+  CategoriesDetails.routeName:(context) => const CategoriesDetails(),
 };
