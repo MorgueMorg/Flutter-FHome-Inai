@@ -1,37 +1,66 @@
 import 'package:fhome/components/constants.dart';
 import 'package:fhome/components/size_config.dart';
 import 'package:fhome/features/screens/home/components/categories_details.dart';
-import 'package:fhome/features/screens/profile/profile_screen.dart';
+import 'package:fhome/repositories/models/category_model.dart';
+import 'package:fhome/service/category_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class Categories extends StatelessWidget {
+class Categories extends StatefulWidget {
   const Categories({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
+  _CategoriesState createState() => _CategoriesState();
+}
+
+class _CategoriesState extends State<Categories> {
+  List<Map<String, dynamic>> categoryImages = [
+    {"icon": "assets/icons/bun.svg", "text": "Булочки"},
+    {"icon": "assets/icons/cake.svg", "text": "Торты"},
+    {"icon": "assets/icons/bisquit.svg", "text": "Пирожные"},
+    {"icon": "assets/icons/cupcake.svg", "text": "Капкейки"},
+    {"icon": "assets/icons/pie.svg", "text": "Пироги"},
+    {"icon": "assets/icons/cookie.svg", "text": "Печенье"},
+    {"icon": "assets/icons/food.svg", "text": "Пончики"},
+    {"icon": "assets/icons/macaron.svg", "text": "Макаронсы"},
+  ];
+
+  List<CategoryModel> categories = [];
+
+  @override
+  void initState() {
+    super.initState();
+    fetchCategories(); // Стягивание из апишки
+  }
+
+  void fetchCategories() async {
+    try {
+      CategoryService categoryService = CategoryService();
+      List<CategoryModel> fetchedCategories =
+          await categoryService.fetchCategories();
+      setState(() {
+        categories = fetchedCategories;
+      });
+    } catch (e) {
+      // Обработка ошибки
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
-    List<Map<String, dynamic>> categories = [
-      {"icon": "assets/icons/cake.svg", "text": "Торты"},
-      {"icon": "assets/icons/bisquit.svg", "text": "Пирожные"},
-      {"icon": "assets/icons/cupcake.svg", "text": "Капкейки"},
-      {"icon": "assets/icons/pie.svg", "text": "Пироги"},
-      {"icon": "assets/icons/cookie.svg", "text": "Печенье"},
-      {"icon": "assets/icons/food.svg", "text": "Пончики"},
-      {"icon": "assets/icons/bun.svg", "text": "Булочки"},
-      {"icon": "assets/icons/macaron.svg", "text": "Макаронсы"},
-    ];
     return Padding(
       padding: EdgeInsets.all(getProportionateScreenWidth(20)),
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Row(
-          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: List.generate(
             categories.length,
             (index) => CategoryCard(
-              icon: categories[index]["icon"],
-              text: categories[index]["text"],
+              icon: categoryImages[index][
+                  "icon"], // Если Дастанчик добавит фотки в категории, можно будет стянуть их здесь
+              text: categories[index].categoryName,
               press: () {},
             ),
           ),
