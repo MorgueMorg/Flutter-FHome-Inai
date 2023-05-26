@@ -1,6 +1,6 @@
 import 'package:fhome/components/constants.dart';
 import 'package:fhome/components/size_config.dart';
-import 'package:fhome/features/screens/home/components/categories_details.dart';
+import 'package:fhome/features/screens/home/components/categories/categories_details.dart';
 import 'package:fhome/repositories/models/category_model.dart';
 import 'package:fhome/service/category_service.dart';
 import 'package:flutter/material.dart';

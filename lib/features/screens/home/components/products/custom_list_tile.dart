@@ -1,6 +1,6 @@
 import 'package:fhome/components/constants.dart';
 import 'package:fhome/components/size_config.dart';
-import 'package:fhome/features/screens/details/product_details_screen.dart';
+import 'package:fhome/features/screens/product_details/product_details_screen.dart';
 import 'package:fhome/repositories/models/product_model.dart';
 import 'package:flutter/material.dart';
 

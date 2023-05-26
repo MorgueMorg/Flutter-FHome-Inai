@@ -1,5 +1,5 @@
-import 'package:fhome/features/screens/details/components/body.dart';
-import 'package:fhome/features/screens/details/components/details_app_bar.dart';
+import 'package:fhome/features/screens/product_details/components/body.dart';
+import 'package:fhome/features/screens/product_details/components/details_app_bar.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetailsScreen extends StatefulWidget {

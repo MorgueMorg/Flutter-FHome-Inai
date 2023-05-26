@@ -1,13 +1,13 @@
 import 'package:fhome/repositories/models/product_model.dart';
-import 'package:fhome/service/api_service.dart';
+import 'package:fhome/service/product_service.dart';
 
 class ProductRepository {
-  final ApiService apiService;
+  final ProductService productService;
 
-  ProductRepository({required this.apiService});
+  ProductRepository({required this.productService});
 
   Future<List<Product>?> getProductList() async {
-    final response = await apiService.getProductData();
+    final response = await productService.getProductData();
     if (response != null) {
       final data = response.data as List<dynamic>;
       return data

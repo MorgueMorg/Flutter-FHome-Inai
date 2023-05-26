@@ -14,7 +14,7 @@ class ProductApi {
       final jsonBody = jsonDecode(response.toString());
       return Product.fromJson(jsonBody);
     } else {
-      throw Exception('Failed to fetch product details');
+      throw Exception('Не удалось загрузить продукт');
     }
   }
 }
