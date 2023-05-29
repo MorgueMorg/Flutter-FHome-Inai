@@ -9,12 +9,10 @@ class ProductRepository {
   Future<List<Product>?> getProductList() async {
     final response = await productService.getProductData();
     if (response != null) {
-      final data = response.data as List<dynamic>;
-      return data
-          .map(
-            (singleProduct) => Product.fromMap(singleProduct),
-          )
-          .toList();
+      final List<dynamic> data = response.data['products'];
+      final List<Product> productList =
+          data.map((singleProduct) => Product.fromMap(singleProduct)).toList();
+      return productList;
     }
     return null;
   }

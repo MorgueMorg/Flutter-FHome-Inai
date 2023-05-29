@@ -14,4 +14,12 @@ class CategoryModel {
       status: json['status'],
     );
   }
+
+  factory CategoryModel.fromMap(Map<String, dynamic> map) {
+    return CategoryModel(
+      id: map['id'],
+      categoryName: map['categoryName'],
+      status: map['status'],
+    );
+  }
 }
