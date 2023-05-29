@@ -1,24 +1,24 @@
 import 'package:fhome/features/cubit/productFeature/product_fetch_cubit.dart';
 import 'package:fhome/features/cubit/productDetails/product_details_cubit.dart';
-import 'package:fhome/features/screens/details/product_details_screen.dart';
+import 'package:fhome/features/screens/product_details/product_details_screen.dart';
 import 'package:fhome/features/screens/splash/splash_screen.dart';
 import 'package:fhome/repositories/product_repository/product_repository.dart';
 import 'package:fhome/router/routes.dart';
-import 'package:fhome/service/api_service.dart';
+import 'package:fhome/service/product_service.dart';
 import 'package:fhome/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   runApp(MyApp(
-    apiService: ApiService(),
+    productService: ProductService(),
   ));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key, required this.apiService}) : super(key: key);
+  const MyApp({Key? key, required this.productService}) : super(key: key);
 
-  final ApiService apiService;
+  final ProductService productService;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         BlocProvider<ProductFetchCubit>(
           create: (context) => ProductFetchCubit(
             apiRepository: ProductRepository(
-              apiService: apiService,
+              productService: productService,
             ),
           )..fetchProductApi(),
         ),

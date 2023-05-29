@@ -4,7 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:fhome/components/api_constants.dart';
 import 'package:fhome/repositories/models/failure_model.dart';
 
-class ApiService {
+class ProductService {
   final Dio _dio = Dio();
 
   Future<Response?> getProductData() async {
@@ -12,7 +12,7 @@ class ApiService {
       final Response response = await _dio.get('$baseUrl/product');
       return response;
     } on SocketException {
-      throw const Failure(message: 'No Internet Connection');
+      throw const Failure(message: 'Нет интернета');
     } catch (err) {
       // ignore: avoid_print
       print("Error :$err");
