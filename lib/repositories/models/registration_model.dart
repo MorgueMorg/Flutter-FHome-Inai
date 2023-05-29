@@ -1,6 +1,7 @@
 class RegistrationModel {
+  // Позже будет добавлена фотография профиля
   final String email;
-  final String photo;
+  // final String photo;
   final String password;
   final String fullName;
   final String birthday;
@@ -9,7 +10,7 @@ class RegistrationModel {
 
   RegistrationModel(
       {required this.email,
-      required this.photo,
+      // required this.photo,
       required this.password,
       required this.fullName,
       required this.birthday,
@@ -19,7 +20,7 @@ class RegistrationModel {
   Map<String, dynamic> toJson() {
     return {
       "email": email,
-      "photo": photo,
+      // "photo": photo,
       "password": password,
       "fullName": fullName,
       "birthday": birthday,
