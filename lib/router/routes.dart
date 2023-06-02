@@ -25,5 +25,6 @@ final Map<String, WidgetBuilder> routes = {
   ProductDetailsScreen.routeName: (context) =>
       const ProductDetailsScreen(productId: 1),
   CategoryDetails.routeName: (context) => CategoryDetails(
-      categoryId: ModalRoute.of(context)?.settings.arguments as int? ?? 0),
+        categoryId: ModalRoute.of(context)?.settings.arguments as int? ?? 0,
+      ),
 };

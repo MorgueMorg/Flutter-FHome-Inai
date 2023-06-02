@@ -1,3 +1,5 @@
+import 'package:fhome/components/size_config.dart';
+import 'package:fhome/features/screens/home/components/categories/components/category_details_body.dart';
 import 'package:fhome/service/category_detail_service.dart';
 import 'package:flutter/material.dart';
 import 'package:fhome/repositories/models/product_model.dart';
@@ -6,10 +8,10 @@ class CategoryDetails extends StatefulWidget {
   static String routeName = '/categories_details';
   final int categoryId;
 
-  const CategoryDetails({Key? key, required this.categoryId})
-      : super(key: key);
+  const CategoryDetails({Key? key, required this.categoryId}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _CategoryDetailsState createState() => _CategoryDetailsState();
 }
 
@@ -28,38 +30,13 @@ class _CategoryDetailsState extends State<CategoryDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Category Details'),
+        title: const Text("Выберите продукт"),
       ),
-      body: FutureBuilder<List<Product>>(
-        future: _productListFuture,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-
-          if (snapshot.hasError) {
-            return Center(
-              child: Text('Failed to fetch products'),
-            );
-          }
-
-          final List<Product> productList = snapshot.data ?? [];
-
-          return ListView.builder(
-            itemCount: productList.length,
-            itemBuilder: (context, index) {
-              final product = productList[index];
-              return ListTile(
-                leading: Image.network(product.photo),
-                title: Text(product.title),
-                subtitle: Text(product.description),
-                trailing: Text('\$${product.price}'),
-              );
-            },
-          );
-        },
+      body: Column(
+        children: [
+          SizedBox(height: getProportionateScreenHeight(15)),
+          CategoryDetailsBody(productListFuture: _productListFuture),
+        ],
       ),
     );
   }

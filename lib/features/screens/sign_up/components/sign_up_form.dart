@@ -13,6 +13,7 @@ class SignUpForm extends StatefulWidget {
   const SignUpForm({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _SignUpFormState createState() => _SignUpFormState();
 }
 
@@ -67,9 +68,11 @@ class _SignUpFormState extends State<SignUpForm> {
 
       if (isRegistered) {
         // Registration successful
+        // ignore: use_build_context_synchronously
         Navigator.pushNamed(context, EmailScreen.routeName);
       } else {
         // Registration failed
+        // ignore: use_build_context_synchronously
         showDialog(
           context: context,
           builder: (BuildContext context) {
@@ -91,6 +94,7 @@ class _SignUpFormState extends State<SignUpForm> {
     }
   }
 
+  // TODO
   Future<bool> _sendRegistrationRequest(
       RegistrationModel registrationModel) async {
     try {
