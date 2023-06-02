@@ -1,21 +1,28 @@
-// import 'dart:convert';
+import 'package:dio/dio.dart';
+import 'package:fhome/repositories/models/product_model.dart';
 
-// import 'package:dio/dio.dart';
-// import 'package:fhome/components/api_constants.dart';
-// import 'package:fhome/repositories/models/product_model.dart';
+class ProductService {
+  final Dio _dio = Dio();
 
-// class CategoryDetailService {
-//   final Dio _dio = Dio();
+  Future<List<Product>> getProductsByCategory(int categoryId) async {
+    try {
+      final response = await _dio.get(
+        'https://fhome.onrender.com/api/product',
+        queryParameters: {
+          'pageNo': 0,
+          'category': categoryId,
+        },
+      );
 
-//   Future<List<Product>> fetchProductsByCategory(int categoryId) async {
-    // ! Дастанчик не сделал под это апишку
-//     final response = await _dio.get('$baseUrl/product?category=$categoryId');
+      final data = response.data;
+      final List<dynamic> productList = data['products'];
 
-//     if (response.statusCode == 200) {
-//       final List<dynamic> jsonList = json.decode(response.data);
-//       return jsonList.map((json) => Product.fromJson(json)).toList();
-//     } else {
-//       throw Exception('Не удалось загрузить продукты');
-//     }
-//   }
-// }
+      return productList
+          .map((json) => Product.fromJson(json))
+          .toList()
+          .cast<Product>(); // Добавлен вызов метода `cast<Product>()`
+    } catch (error) {
+      throw Exception('Failed to fetch products: $error');
+    }
+  }
+}

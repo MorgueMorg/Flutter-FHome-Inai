@@ -26,5 +26,5 @@ final Map<String, WidgetBuilder> routes = {
       const ProductDetailsScreen(productId: 1),
   // ! Закончить, когда будет готова апишка под категории
   // CategoriesDetails.routeName: (context) => CategoriesDetails(categoryId: 1),
-  CategoriesDetails.routeName: (context) => const CategoriesDetails(),
+  CategoryDetails.routeName: (context) => CategoryDetails(categoryId: 1,),
 };

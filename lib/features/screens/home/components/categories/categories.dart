@@ -16,14 +16,14 @@ class Categories extends StatefulWidget {
 
 class _CategoriesState extends State<Categories> {
   List<Map<String, dynamic>> categoryImages = [
-    {"icon": "assets/icons/bun.svg", "text": "Булочки"},
-    {"icon": "assets/icons/cake.svg", "text": "Торты"},
-    {"icon": "assets/icons/bisquit.svg", "text": "Пирожные"},
-    {"icon": "assets/icons/cupcake.svg", "text": "Капкейки"},
-    {"icon": "assets/icons/pie.svg", "text": "Пироги"},
-    {"icon": "assets/icons/cookie.svg", "text": "Печенье"},
-    {"icon": "assets/icons/food.svg", "text": "Пончики"},
-    {"icon": "assets/icons/macaron.svg", "text": "Макаронсы"},
+    {"icon": "assets/icons/bun.svg"},
+    {"icon": "assets/icons/cake.svg"},
+    {"icon": "assets/icons/bisquit.svg"},
+    {"icon": "assets/icons/cupcake.svg"},
+    {"icon": "assets/icons/pie.svg"},
+    {"icon": "assets/icons/cookie.svg"},
+    {"icon": "assets/icons/food.svg"},
+    {"icon": "assets/icons/macaron.svg"},
   ];
 
   List<CategoryModel> categories = [];
@@ -85,7 +85,7 @@ class CategoryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, CategoriesDetails.routeName);
+        Navigator.pushNamed(context, CategoryDetails.routeName);
       },
       child: Padding(
         padding: const EdgeInsets.only(right: 15),
