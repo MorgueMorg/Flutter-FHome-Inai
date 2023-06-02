@@ -24,7 +24,6 @@ final Map<String, WidgetBuilder> routes = {
   // ! Просит productId, но тоже ни на что не влияет
   ProductDetailsScreen.routeName: (context) =>
       const ProductDetailsScreen(productId: 1),
-  // ! Закончить, когда будет готова апишка под категории
-  // CategoriesDetails.routeName: (context) => CategoriesDetails(categoryId: 1),
-  CategoryDetails.routeName: (context) => CategoryDetails(categoryId: 1,),
+  CategoryDetails.routeName: (context) => CategoryDetails(
+      categoryId: ModalRoute.of(context)?.settings.arguments as int? ?? 0),
 };

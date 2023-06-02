@@ -7,10 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class Categories extends StatefulWidget {
-  const Categories({super.key});
+  const Categories({Key? key}) : super(key: key);
 
   @override
-  // ignore: library_private_types_in_public_api
   _CategoriesState createState() => _CategoriesState();
 }
 
@@ -27,11 +26,12 @@ class _CategoriesState extends State<Categories> {
   ];
 
   List<CategoryModel> categories = [];
+  int selectedCategoryId = 0; // Добавлено: ID выбранной категории
 
   @override
   void initState() {
     super.initState();
-    fetchCategories(); // Стягивание из апишки
+    fetchCategories();
   }
 
   void fetchCategories() async {
@@ -47,6 +47,12 @@ class _CategoriesState extends State<Categories> {
     }
   }
 
+  void onCategorySelected(int categoryId) {
+    setState(() {
+      selectedCategoryId = categoryId; // Обновляем выбранную категорию
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -58,10 +64,18 @@ class _CategoriesState extends State<Categories> {
           children: List.generate(
             categories.length,
             (index) => CategoryCard(
-              icon: categoryImages[index][
-                  "icon"], // Если Дастанчик добавит фотки в категории, можно будет стянуть их здесь
+              icon: categoryImages[index]["icon"],
               text: categories[index].categoryName,
-              press: () {},
+              press: () {
+                onCategorySelected(categories[index]
+                    .id); // Добавлено: Вызов функции onCategorySelected с ID выбранной категории
+                Navigator.pushNamed(
+                  context,
+                  CategoryDetails.routeName,
+                  arguments:
+                      selectedCategoryId, // Добавлено: Передача ID выбранной категории через аргументы маршрута
+                );
+              },
             ),
           ),
         ),
@@ -84,9 +98,7 @@ class CategoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Navigator.pushNamed(context, CategoryDetails.routeName);
-      },
+      onTap: press,
       child: Padding(
         padding: const EdgeInsets.only(right: 15),
         child: SizedBox(
@@ -107,9 +119,11 @@ class CategoryCard extends StatelessWidget {
               Text(
                 text!,
                 textAlign: TextAlign.center,
-                style:
-                    const TextStyle(fontSize: 10, fontWeight: FontWeight.w600),
-              )
+                style: const TextStyle(
+                  fontSize: 10,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
             ],
           ),
         ),
