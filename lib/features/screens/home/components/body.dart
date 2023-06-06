@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Body extends StatefulWidget {
-  const Body({super.key});
+  const Body({Key? key}) : super(key: key);
 
   @override
   State<Body> createState() => _BodyState();
@@ -17,6 +17,7 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
   late ProductFetchCubit productFetchCubit;
+  String searchQuery = '';
 
   @override
   void initState() {
@@ -26,6 +27,14 @@ class _BodyState extends State<Body> {
 
   Future<void> _refreshData() async {
     productFetchCubit.fetchProductApi();
+  }
+
+  void _onSearchChanged(String query) {
+    setState(() {
+      searchQuery = query;
+    });
+    // Обновление листа продуктов с учетом поискового запроса
+    productFetchCubit.searchProducts(query);
   }
 
   @override
@@ -39,13 +48,17 @@ class _BodyState extends State<Body> {
           child: Column(
             children: [
               SizedBox(height: getProportionateScreenWidth(15)),
-              const HomeHeader(),
+              HomeHeader(
+                onSearchChanged: _onSearchChanged,
+              ),
               SizedBox(height: getProportionateScreenWidth(30)),
               const Carousel(),
               SizedBox(height: getProportionateScreenWidth(20)),
               const Categories(),
               SizedBox(height: getProportionateScreenWidth(0)),
-              const FetchBlocProducts(),
+              FetchBlocProducts(
+                searchQuery: searchQuery,
+              ),
             ],
           ),
         ),

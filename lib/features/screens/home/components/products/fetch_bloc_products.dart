@@ -6,7 +6,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FetchBlocProducts extends StatelessWidget {
-  const FetchBlocProducts({super.key});
+  final String searchQuery;
+
+  const FetchBlocProducts({
+    Key? key,
+    required this.searchQuery,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +23,20 @@ class FetchBlocProducts extends StatelessWidget {
           return Text(state.failure.message);
         } else if (state is ProductFetchLoaded) {
           final postList = state.productList;
-          return postList.isEmpty
-              ? const Text('Извините, \nв данный момент продуктов нет.',
-                  textAlign: TextAlign.center)
+
+          // ? Фильтрация списка продуктов с учетом поискового запроса
+          final filteredList = postList.where((product) {
+            final title = product.title.toLowerCase();
+            final description = product.description.toLowerCase();
+            final query = searchQuery.toLowerCase();
+            return title.contains(query) || description.contains(query);
+          }).toList();
+
+          return filteredList.isEmpty
+              ? const Text(
+                  'Извините, \nв данный момент продуктов нет.',
+                  textAlign: TextAlign.center,
+                )
               : ListView.builder(
                   // ? physics - отключает прокрутку дочернего листвью, чтобы прокручился только основной синглскролл вью, чтобы не было отдельной прокрутки на одном экранеч
                   physics: const NeverScrollableScrollPhysics(),

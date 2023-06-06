@@ -4,22 +4,25 @@ import 'package:flutter/material.dart';
 import 'search_field.dart';
 
 class HomeHeader extends StatelessWidget {
+  final ValueChanged<String>? onSearchChanged;
+
   const HomeHeader({
     Key? key,
+    this.onSearchChanged,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:
-          EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+      padding: EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const SearchField(),
+          SearchField(
+            onChanged: onSearchChanged,
+          ),
           IconBtnWithCounter(
             svgSrc: "assets/icons/Cart Icon.svg",
-            // press: () => Navigator.pushNamed(context, CartScreen.routeName),
             press: () {},
           ),
           IconBtnWithCounter(

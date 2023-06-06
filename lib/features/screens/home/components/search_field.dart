@@ -3,8 +3,11 @@ import 'package:fhome/components/size_config.dart';
 import 'package:flutter/material.dart';
 
 class SearchField extends StatelessWidget {
+  final ValueChanged<String>? onChanged;
+
   const SearchField({
     Key? key,
+    this.onChanged,
   }) : super(key: key);
 
   @override
@@ -16,17 +19,18 @@ class SearchField extends StatelessWidget {
         borderRadius: BorderRadius.circular(15),
       ),
       child: TextField(
-        // ignore: avoid_print
-        onChanged: (value) => print(value),
+        onChanged: onChanged,
         decoration: InputDecoration(
-            contentPadding: EdgeInsets.symmetric(
-                horizontal: getProportionateScreenWidth(20),
-                vertical: getProportionateScreenWidth(15)),
-            border: InputBorder.none,
-            focusedBorder: InputBorder.none,
-            enabledBorder: InputBorder.none,
-            hintText: "Поиск",
-            prefixIcon: const Icon(Icons.search)),
+          contentPadding: EdgeInsets.symmetric(
+            horizontal: getProportionateScreenWidth(20),
+            vertical: getProportionateScreenWidth(15),
+          ),
+          border: InputBorder.none,
+          focusedBorder: InputBorder.none,
+          enabledBorder: InputBorder.none,
+          hintText: "Поиск",
+          prefixIcon: const Icon(Icons.search),
+        ),
       ),
     );
   }

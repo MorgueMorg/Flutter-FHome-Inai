@@ -16,4 +16,24 @@ class ProductRepository {
     }
     return null;
   }
+
+  Future<List<Product>?> searchProducts(String query) async {
+    final List<Product>? productList = await getProductList();
+    if (productList != null) {
+      if (query.isEmpty) {
+        return productList;
+      } else {
+        final List<Product> searchResult = productList.where((product) {
+          // ! Поиск продуктов по названию и описанию на локалке (из уже стянутых продуктов), потому что нет живого поиска на бэкенде.
+          final String productTitle = product.title.toLowerCase();
+          final String productDescription = product.description.toLowerCase();
+          final String searchQuery = query.toLowerCase();
+          return productTitle.contains(searchQuery) ||
+              productDescription.contains(searchQuery);
+        }).toList();
+        return searchResult;
+      }
+    }
+    return null;
+  }
 }
