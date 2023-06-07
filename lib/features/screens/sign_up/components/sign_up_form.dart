@@ -1,11 +1,11 @@
 import 'package:fhome/components/api_constants.dart';
 import 'package:fhome/components/constants.dart';
+import 'package:fhome/features/screens/email/email_screen.dart';
 import 'package:fhome/service/registration_service.dart';
 import 'package:flutter/material.dart';
 import 'package:fhome/components/default_button.dart';
 import 'package:fhome/components/form_error.dart';
 import 'package:fhome/components/size_config.dart';
-import 'package:fhome/features/screens/complete_profile/complete_profile_screen.dart';
 import 'package:fhome/repositories/models/registration_model.dart';
 import 'package:http/http.dart' as http;
 
@@ -13,14 +13,16 @@ class SignUpForm extends StatefulWidget {
   const SignUpForm({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _SignUpFormState createState() => _SignUpFormState();
 }
 
 class _SignUpFormState extends State<SignUpForm> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _passwordController = TextEditingController();
+  // ignore: unused_field
   final TextEditingController _confirmPasswordController =
-      TextEditingController();
+      TextEditingController(); // переменная для подтверждения пароля
   String? email;
   String? password;
   String? fullName;
@@ -30,7 +32,7 @@ class _SignUpFormState extends State<SignUpForm> {
   // String? confirmPassword;
   final List<String?> errors = [];
 
-  RegistrationService _registrationService = RegistrationService();
+  final RegistrationService _registrationService = RegistrationService();
 
   void addError({String? error}) {
     if (!errors.contains(error)) {
@@ -66,9 +68,11 @@ class _SignUpFormState extends State<SignUpForm> {
 
       if (isRegistered) {
         // Registration successful
-        Navigator.pushNamed(context, CompleteProfileScreen.routeName);
+        // ignore: use_build_context_synchronously
+        Navigator.pushNamed(context, EmailScreen.routeName);
       } else {
         // Registration failed
+        // ignore: use_build_context_synchronously
         showDialog(
           context: context,
           builder: (BuildContext context) {
@@ -90,6 +94,7 @@ class _SignUpFormState extends State<SignUpForm> {
     }
   }
 
+  // TODO
   Future<bool> _sendRegistrationRequest(
       RegistrationModel registrationModel) async {
     try {

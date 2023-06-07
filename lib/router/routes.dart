@@ -1,3 +1,4 @@
+import 'package:fhome/features/screens/cart/cart_screen.dart';
 import 'package:fhome/features/screens/complete_profile/complete_profile_screen.dart';
 import 'package:fhome/features/screens/home/components/categories/categories_details.dart';
 import 'package:fhome/features/screens/product_details/product_details_screen.dart';
@@ -24,7 +25,8 @@ final Map<String, WidgetBuilder> routes = {
   // ! Просит productId, но тоже ни на что не влияет
   ProductDetailsScreen.routeName: (context) =>
       const ProductDetailsScreen(productId: 1),
-  // ! Закончить, когда будет готова апишка под категории
-  // CategoriesDetails.routeName: (context) => CategoriesDetails(categoryId: 1),
-  CategoriesDetails.routeName: (context) => const CategoriesDetails(),
+  CategoryDetails.routeName: (context) => CategoryDetails(
+        categoryId: ModalRoute.of(context)?.settings.arguments as int? ?? 0,
+      ),
+  CartScreen.routeName: (context) => CartScreen(),
 };

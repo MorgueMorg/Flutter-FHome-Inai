@@ -1,65 +1,43 @@
-// import 'package:fhome/repositories/models/product_model.dart';
-// import 'package:fhome/service/category_detail_service.dart';
-// import 'package:flutter/material.dart';
-
-// class CategoriesDetails extends StatefulWidget {
-//   static String routeName = '/categories_details';
-//   final int categoryId;
-
-//   CategoriesDetails({required this.categoryId});
-
-//   @override
-//   _CategoriesDetailsState createState() => _CategoriesDetailsState();
-// }
-
-// class _CategoriesDetailsState extends State<CategoriesDetails> {
-//   final CategoryDetailService categoryDetailService = CategoryDetailService();
-//   List<Product> products = [];
-
-//   @override
-//   void initState() {
-//     super.initState();
-//     fetchProducts();
-//   }
-
-//   void fetchProducts() async {
-//     try {
-//       List<Product> fetchedProducts = await categoryDetailService
-//           .fetchProductsByCategory(widget.categoryId);
-//       setState(() {
-//         products = fetchedProducts;
-//       });
-//     } catch (e) {
-//       // Обработка ошибки
-//     }
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text('Список продуктов'),
-//       ),
-//       body: ListView.builder(
-//         itemCount: products.length,
-//         itemBuilder: (BuildContext context, int index) {
-//           return ListTile(
-//             title: Text(products[index].title),
-//           );
-//         },
-//       ),
-//     );
-//   }
-// }
-
+import 'package:fhome/components/size_config.dart';
+import 'package:fhome/features/screens/home/components/categories/components/category_details_body.dart';
+import 'package:fhome/service/category_detail_service.dart';
 import 'package:flutter/material.dart';
+import 'package:fhome/repositories/models/product_model.dart';
 
-class CategoriesDetails extends StatelessWidget {
+class CategoryDetails extends StatefulWidget {
   static String routeName = '/categories_details';
-  const CategoriesDetails({super.key});
+  final int categoryId;
+
+  const CategoryDetails({Key? key, required this.categoryId}) : super(key: key);
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _CategoryDetailsState createState() => _CategoryDetailsState();
+}
+
+class _CategoryDetailsState extends State<CategoryDetails> {
+  final ProductService _productService = ProductService();
+  late Future<List<Product>> _productListFuture;
+
+  @override
+  void initState() {
+    super.initState();
+    _productListFuture =
+        _productService.getProductsByCategory(widget.categoryId);
+  }
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Выберите продукт"),
+      ),
+      body: Column(
+        children: [
+          SizedBox(height: getProportionateScreenHeight(15)),
+          CategoryDetailsBody(productListFuture: _productListFuture),
+        ],
+      ),
+    );
   }
 }

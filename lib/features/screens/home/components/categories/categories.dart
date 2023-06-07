@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class Categories extends StatefulWidget {
-  const Categories({super.key});
+  const Categories({Key? key}) : super(key: key);
 
   @override
   // ignore: library_private_types_in_public_api
@@ -16,22 +16,23 @@ class Categories extends StatefulWidget {
 
 class _CategoriesState extends State<Categories> {
   List<Map<String, dynamic>> categoryImages = [
-    {"icon": "assets/icons/bun.svg", "text": "Булочки"},
-    {"icon": "assets/icons/cake.svg", "text": "Торты"},
-    {"icon": "assets/icons/bisquit.svg", "text": "Пирожные"},
-    {"icon": "assets/icons/cupcake.svg", "text": "Капкейки"},
-    {"icon": "assets/icons/pie.svg", "text": "Пироги"},
-    {"icon": "assets/icons/cookie.svg", "text": "Печенье"},
-    {"icon": "assets/icons/food.svg", "text": "Пончики"},
-    {"icon": "assets/icons/macaron.svg", "text": "Макаронсы"},
+    {"icon": "assets/icons/bun.svg"},
+    {"icon": "assets/icons/cake.svg"},
+    {"icon": "assets/icons/bisquit.svg"},
+    {"icon": "assets/icons/cupcake.svg"},
+    {"icon": "assets/icons/pie.svg"},
+    {"icon": "assets/icons/cookie.svg"},
+    {"icon": "assets/icons/food.svg"},
+    {"icon": "assets/icons/macaron.svg"},
   ];
 
   List<CategoryModel> categories = [];
+  int selectedCategoryId = 0; // Добавлено: ID выбранной категории
 
   @override
   void initState() {
     super.initState();
-    fetchCategories(); // Стягивание из апишки
+    fetchCategories();
   }
 
   void fetchCategories() async {
@@ -47,6 +48,12 @@ class _CategoriesState extends State<Categories> {
     }
   }
 
+  void onCategorySelected(int categoryId) {
+    setState(() {
+      selectedCategoryId = categoryId; // Обновляем выбранную категорию
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -58,10 +65,18 @@ class _CategoriesState extends State<Categories> {
           children: List.generate(
             categories.length,
             (index) => CategoryCard(
-              icon: categoryImages[index][
-                  "icon"], // Если Дастанчик добавит фотки в категории, можно будет стянуть их здесь
+              icon: categoryImages[index]["icon"],
               text: categories[index].categoryName,
-              press: () {},
+              press: () {
+                onCategorySelected(categories[index]
+                    .id); // Добавлено: Вызов функции onCategorySelected с ID выбранной категории
+                Navigator.pushNamed(
+                  context,
+                  CategoryDetails.routeName,
+                  arguments:
+                      selectedCategoryId, // Добавлено: Передача ID выбранной категории через аргументы маршрута
+                );
+              },
             ),
           ),
         ),
@@ -84,9 +99,7 @@ class CategoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Navigator.pushNamed(context, CategoriesDetails.routeName);
-      },
+      onTap: press,
       child: Padding(
         padding: const EdgeInsets.only(right: 15),
         child: SizedBox(
@@ -107,9 +120,11 @@ class CategoryCard extends StatelessWidget {
               Text(
                 text!,
                 textAlign: TextAlign.center,
-                style:
-                    const TextStyle(fontSize: 10, fontWeight: FontWeight.w600),
-              )
+                style: const TextStyle(
+                  fontSize: 10,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
             ],
           ),
         ),
