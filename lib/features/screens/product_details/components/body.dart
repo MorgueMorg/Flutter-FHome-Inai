@@ -1,9 +1,10 @@
+import 'package:fhome/components/constants.dart';
 import 'package:fhome/components/default_button.dart';
 import 'package:fhome/components/size_config.dart';
+import 'package:fhome/features/cubit/cartFeature/cart_cubit.dart';
+import 'package:fhome/features/cubit/productDetails/product_details_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fhome/components/constants.dart';
-import 'package:fhome/features/cubit/productDetails/product_details_cubit.dart';
 
 class ProductDetailsBody extends StatefulWidget {
   final int productId;
@@ -12,18 +13,20 @@ class ProductDetailsBody extends StatefulWidget {
       : super(key: key);
 
   @override
-  // ignore: library_private_types_in_public_api
   _ProductDetailsBodyState createState() => _ProductDetailsBodyState();
 }
 
 class _ProductDetailsBodyState extends State<ProductDetailsBody> {
   late ProductDetailsCubit productDetailsCubit;
+  late CartCubit cartCubit;
 
   @override
   void initState() {
     super.initState();
     productDetailsCubit = context.read<ProductDetailsCubit>();
     productDetailsCubit.fetchProductDetails(widget.productId);
+
+    cartCubit = context.read<CartCubit>();
   }
 
   Future<void> _refreshData() async {
@@ -32,7 +35,6 @@ class _ProductDetailsBodyState extends State<ProductDetailsBody> {
 
   @override
   Widget build(BuildContext context) {
-    productDetailsCubit = context.read<ProductDetailsCubit>();
     return RefreshIndicator(
       color: darkPink,
       onRefresh: _refreshData,
@@ -43,9 +45,10 @@ class _ProductDetailsBodyState extends State<ProductDetailsBody> {
               builder: (context, state) {
                 if (state is ProductDetailsLoading) {
                   return const Center(
-                      child: CircularProgressIndicator(
-                    color: darkPink,
-                  ));
+                    child: CircularProgressIndicator(
+                      color: darkPink,
+                    ),
+                  );
                 } else if (state is ProductDetailsLoaded) {
                   final product = state.product;
                   return ListView(
@@ -75,9 +78,10 @@ class _ProductDetailsBodyState extends State<ProductDetailsBody> {
                             Text(
                               "${product.price} som",
                               style: const TextStyle(
-                                  color: lightPink,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 24),
+                                color: lightPink,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 24,
+                              ),
                             ),
                             SizedBox(
                               height: getProportionateScreenHeight(20),
@@ -85,7 +89,9 @@ class _ProductDetailsBodyState extends State<ProductDetailsBody> {
                             Text(
                               product.description,
                               style: const TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.w400),
+                                fontSize: 20,
+                                fontWeight: FontWeight.w400,
+                              ),
                               textAlign: TextAlign.center,
                             ),
                             SizedBox(
@@ -95,7 +101,15 @@ class _ProductDetailsBodyState extends State<ProductDetailsBody> {
                               width: SizeConfig.screenWidth * 0.7,
                               child: DefaultButton(
                                 text: "Купить",
-                                press: () {},
+                                press: () {
+                                  cartCubit.addProduct(product);
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content:
+                                          Text('Продукт добавлен в корзину'),
+                                    ),
+                                  );
+                                },
                               ),
                             )
                           ],
@@ -106,7 +120,7 @@ class _ProductDetailsBodyState extends State<ProductDetailsBody> {
                 } else if (state is ProductDetailsError) {
                   return Center(child: Text('Error: ${state.error}'));
                 } else {
-                  return Container(); // Handle other states if necessary
+                  return Container();
                 }
               },
             ),
