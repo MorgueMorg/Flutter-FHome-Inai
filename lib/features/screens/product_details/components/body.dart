@@ -106,8 +106,10 @@ class _ProductDetailsBodyState extends State<ProductDetailsBody> {
                                   cartCubit.addProduct(product);
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     const SnackBar(
+                                      backgroundColor: darkPink,
                                       content:
                                           Text('Продукт добавлен в корзину'),
+                                      duration: Duration(seconds: 1),
                                     ),
                                   );
                                 },

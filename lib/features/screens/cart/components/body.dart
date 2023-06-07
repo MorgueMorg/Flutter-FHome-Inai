@@ -25,7 +25,7 @@ class Body extends StatelessWidget {
                   itemBuilder: (context, index) {
                     final product = state[index];
                     return Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(12.0),
                       child: ListTile(
                         leading: ClipRRect(
                           borderRadius: BorderRadius.circular(15.0),
@@ -35,16 +35,31 @@ class Body extends StatelessWidget {
                             width: getProportionateScreenWidth(50),
                           ),
                         ),
-                        trailing: Text(
+                        trailing: BlocBuilder<CartCubit, List<Product>>(
+                          builder: (context, state) {
+                            return IconButton(
+                              icon: const Icon(
+                                Icons.close,
+                                color: darkPink,
+                              ),
+                              onPressed: () {
+                                context
+                                    .read<CartCubit>()
+                                    .removeProduct(product);
+                              },
+                            );
+                          },
+                        ),
+                        title: Text(product.title),
+                        // subtitle:
+                        //     Text('${product.description.substring(0, 28)}...'),
+                        subtitle: Text(
                           "${product.price} сом",
                           style: const TextStyle(
                               color: darkPink,
                               fontWeight: FontWeight.w700,
                               fontSize: 16),
                         ),
-                        title: Text(product.title),
-                        subtitle:
-                            Text('${product.description.substring(0, 28)}...'),
                       ),
                     );
                   },

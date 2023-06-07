@@ -1,13 +1,16 @@
 import 'package:fhome/components/constants.dart';
 import 'package:fhome/components/default_button.dart';
 import 'package:fhome/components/size_config.dart';
+import 'package:fhome/features/cubit/cartFeature/cart_cubit.dart';
 import 'package:fhome/features/screens/cart/components/body.dart';
+import 'package:fhome/repositories/models/product_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CartScreen extends StatelessWidget {
   static String routeName = "/cart";
 
-  const CartScreen({super.key});
+  const CartScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,13 +26,9 @@ class CartScreen extends StatelessWidget {
       title: const Column(
         children: [
           Text(
-            "Ваша корзина",
+            "Корзина",
             style: TextStyle(color: Colors.black),
           ),
-          // Text(
-          //   "${demoCarts.length} items",
-          //   style: Theme.of(context).textTheme.caption,
-          // ),
         ],
       ),
     );
@@ -37,9 +36,7 @@ class CartScreen extends StatelessWidget {
 }
 
 class CheckOurCard extends StatelessWidget {
-  const CheckOurCard({
-    super.key,
-  });
+  const CheckOurCard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -48,8 +45,6 @@ class CheckOurCard extends StatelessWidget {
         vertical: getProportionateScreenWidth(15),
         horizontal: getProportionateScreenWidth(15),
       ),
-      // Used this height only for demo
-      // height: 174,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: const BorderRadius.only(
@@ -85,8 +80,8 @@ class CheckOurCard extends StatelessWidget {
                 ),
                 const Spacer(),
                 Text(
-                  "Add voucher code",
-                  style: Theme.of(context).textTheme.bodySmall,
+                  "Добавить КПП чек",
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ),
                 const SizedBox(width: 10),
                 const Icon(
@@ -100,16 +95,25 @@ class CheckOurCard extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text.rich(
-                  TextSpan(
-                    text: "Сумма:\n",
-                    children: [
+                BlocBuilder<CartCubit, List<Product>>(
+                  builder: (context, state) {
+                    double totalAmount = 0;
+                    for (var product in state) {
+                      totalAmount += product.price;
+                    }
+                    return Text.rich(
                       TextSpan(
-                        text: "\$337.15",
-                        style: TextStyle(fontSize: 16, color: Colors.black),
+                        text: "Сумма:\n",
+                        children: [
+                          TextSpan(
+                            text: "$totalAmount сом",
+                            style:
+                                const TextStyle(fontSize: 16, color: Colors.black),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
+                    );
+                  },
                 ),
                 SizedBox(
                   width: getProportionateScreenWidth(190),
