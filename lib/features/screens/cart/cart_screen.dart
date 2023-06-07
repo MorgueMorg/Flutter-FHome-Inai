@@ -7,18 +7,20 @@ import 'package:flutter/material.dart';
 class CartScreen extends StatelessWidget {
   static String routeName = "/cart";
 
+  const CartScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(context),
-      body: Body(),
-      bottomNavigationBar: CheckOurCard(),
+      body: const Body(),
+      bottomNavigationBar: const CheckOurCard(),
     );
   }
 
   AppBar buildAppBar(BuildContext context) {
     return AppBar(
-      title: Column(
+      title: const Column(
         children: [
           Text(
             "Ваша корзина",
@@ -50,15 +52,15 @@ class CheckOurCard extends StatelessWidget {
       // height: 174,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(30),
           topRight: Radius.circular(30),
         ),
         boxShadow: [
           BoxShadow(
-            offset: Offset(0, -15),
+            offset: const Offset(0, -15),
             blurRadius: 20,
-            color: Color(0xFFDADADA).withOpacity(0.15),
+            color: const Color(0xFFDADADA).withOpacity(0.15),
           ),
         ],
       ),
@@ -73,7 +75,7 @@ class CheckOurCard extends StatelessWidget {
                   height: getProportionateScreenWidth(40),
                   width: getProportionateScreenWidth(40),
                   decoration: BoxDecoration(
-                    color: Color(0xFFF5F6F9),
+                    color: const Color(0xFFF5F6F9),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: const Icon(
@@ -84,7 +86,7 @@ class CheckOurCard extends StatelessWidget {
                 const Spacer(),
                 Text(
                   "Add voucher code",
-                  style: Theme.of(context).textTheme.caption,
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
                 const SizedBox(width: 10),
                 const Icon(
@@ -98,9 +100,9 @@ class CheckOurCard extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text.rich(
+                const Text.rich(
                   TextSpan(
-                    text: "Total:\n",
+                    text: "Сумма:\n",
                     children: [
                       TextSpan(
                         text: "\$337.15",

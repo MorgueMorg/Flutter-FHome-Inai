@@ -13,6 +13,7 @@ class ProductDetailsBody extends StatefulWidget {
       : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _ProductDetailsBodyState createState() => _ProductDetailsBodyState();
 }
 
@@ -104,7 +105,7 @@ class _ProductDetailsBodyState extends State<ProductDetailsBody> {
                                 press: () {
                                   cartCubit.addProduct(product);
                                   ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
+                                    const SnackBar(
                                       content:
                                           Text('Продукт добавлен в корзину'),
                                     ),

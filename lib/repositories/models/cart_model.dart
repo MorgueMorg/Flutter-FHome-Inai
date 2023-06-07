@@ -1,7 +1,7 @@
 import 'package:fhome/repositories/models/product_model.dart';
 
 class CartModel {
-  List<Product> _products = [];
+  final List<Product> _products = [];
 
   List<Product> get products => _products;
 

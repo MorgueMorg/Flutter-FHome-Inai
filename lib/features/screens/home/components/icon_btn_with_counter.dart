@@ -4,16 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class IconBtnWithCounter extends StatelessWidget {
+  final String svgSrc;
+  final int numOfItems;
+  final VoidCallback press;
+
   const IconBtnWithCounter({
     Key? key,
     required this.svgSrc,
-    this.numOfitem = 0,
+    required this.numOfItems,
     required this.press,
   }) : super(key: key);
-
-  final String svgSrc;
-  final int numOfitem;
-  final GestureTapCallback press;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class IconBtnWithCounter extends StatelessWidget {
             ),
             child: SvgPicture.asset(svgSrc),
           ),
-          if (numOfitem != 0)
+          if (numOfItems != 0)
             Positioned(
               top: -3,
               right: 0,
@@ -47,7 +47,7 @@ class IconBtnWithCounter extends StatelessWidget {
                 ),
                 child: Center(
                   child: Text(
-                    "$numOfitem",
+                    "$numOfItems",
                     style: TextStyle(
                       fontSize: getProportionateScreenWidth(10),
                       height: 1,
