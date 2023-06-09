@@ -1,6 +1,7 @@
 import 'package:fhome/features/screens/cart/cart_screen.dart';
 import 'package:fhome/features/screens/complete_profile/complete_profile_screen.dart';
 import 'package:fhome/features/screens/home/components/categories/categories_details.dart';
+import 'package:fhome/features/screens/notices/notices_screen.dart';
 import 'package:fhome/features/screens/product_details/product_details_screen.dart';
 import 'package:fhome/features/screens/email/email_screen.dart';
 import 'package:fhome/features/screens/forgot_password/forgot_password_screen.dart';
@@ -29,4 +30,5 @@ final Map<String, WidgetBuilder> routes = {
         categoryId: ModalRoute.of(context)?.settings.arguments as int? ?? 0,
       ),
   CartScreen.routeName: (context) => const CartScreen(),
+  NoticesScreen.routeName: (context) => const NoticesScreen(),
 };
