@@ -18,53 +18,60 @@ class Body extends StatelessWidget {
           SizedBox(height: getProportionateScreenHeight(20)),
           BlocBuilder<CartCubit, List<Product>>(
             builder: (context, state) {
-              return Expanded(
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: state.length,
-                  itemBuilder: (context, index) {
-                    final product = state[index];
-                    return Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: ListTile(
-                        leading: ClipRRect(
-                          borderRadius: BorderRadius.circular(15.0),
-                          child: Image.network(
-                            product.photo,
-                            height: getProportionateScreenHeight(50),
-                            width: getProportionateScreenWidth(50),
-                          ),
-                        ),
-                        trailing: BlocBuilder<CartCubit, List<Product>>(
-                          builder: (context, state) {
-                            return IconButton(
-                              icon: const Icon(
-                                Icons.close,
-                                color: darkPink,
+              return state.isEmpty
+                  ? const Center(
+                      child: Text(
+                        'Корзина пуста',
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
+                      ),
+                    )
+                  // ? Если корзина не пустая
+                  : Expanded(
+                      child: ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: state.length,
+                        itemBuilder: (context, index) {
+                          final product = state[index];
+                          return Padding(
+                            padding: const EdgeInsets.all(12.0),
+                            child: ListTile(
+                              leading: ClipRRect(
+                                borderRadius: BorderRadius.circular(15.0),
+                                child: Image.network(
+                                  product.photo,
+                                  height: getProportionateScreenHeight(50),
+                                  width: getProportionateScreenWidth(50),
+                                ),
                               ),
-                              onPressed: () {
-                                context
-                                    .read<CartCubit>()
-                                    .removeProduct(product);
-                              },
-                            );
-                          },
-                        ),
-                        title: Text(product.title),
-                        // subtitle:
-                        //     Text('${product.description.substring(0, 28)}...'),
-                        subtitle: Text(
-                          "${product.price} сом",
-                          style: const TextStyle(
-                              color: darkPink,
-                              fontWeight: FontWeight.w700,
-                              fontSize: 16),
-                        ),
+                              trailing: BlocBuilder<CartCubit, List<Product>>(
+                                builder: (context, state) {
+                                  return IconButton(
+                                    icon: const Icon(
+                                      Icons.close,
+                                      color: darkPink,
+                                    ),
+                                    onPressed: () {
+                                      context
+                                          .read<CartCubit>()
+                                          .removeProduct(product);
+                                    },
+                                  );
+                                },
+                              ),
+                              title: Text(product.title),
+                              subtitle: Text(
+                                "${product.price} сом",
+                                style: const TextStyle(
+                                    color: darkPink,
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 16),
+                              ),
+                            ),
+                          );
+                        },
                       ),
                     );
-                  },
-                ),
-              );
             },
           ),
         ],
