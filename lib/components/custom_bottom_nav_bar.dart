@@ -50,7 +50,7 @@ class CustomBottomNavBar extends StatelessWidget {
                 Navigator.pushNamed(context, FavoritesScreen.routeName);
               },
               icon: SvgPicture.asset("assets/icons/Heart Icon.svg",
-                  color: MenuState.favourite == selectedMenu
+                  color: MenuState.favorites == selectedMenu
                       ? lightPink
                       : inActiveIconColor),
             ),
