@@ -1,4 +1,5 @@
 import 'package:fhome/features/cubit/cartFeature/cart_cubit.dart';
+import 'package:fhome/features/cubit/favoritesFeature/favorites_cubit.dart';
 import 'package:fhome/features/cubit/productFeature/product_fetch_cubit.dart';
 import 'package:fhome/features/cubit/productDetails/product_details_cubit.dart';
 import 'package:fhome/features/screens/product_details/product_details_screen.dart';
@@ -40,6 +41,9 @@ class MyApp extends StatelessWidget {
         BlocProvider<CartCubit>(
           create: (context) => CartCubit(),
         ),
+        BlocProvider<FavoritesCubit>(
+          create: (context) => FavoritesCubit(),
+        )
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

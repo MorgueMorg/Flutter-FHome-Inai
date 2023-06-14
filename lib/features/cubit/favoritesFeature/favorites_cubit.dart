@@ -4,15 +4,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class FavoritesCubit extends Cubit<List<Product>> {
   FavoritesCubit() : super([]);
 
-  void addFavorite(Product product) {
-    final currentList = state.toList();
-    currentList.add(product);
-    emit(currentList);
+  void addProduct(Product product) {
+    emit([...state, product]);
   }
 
-  void removeFavorite(Product product) {
-    final currentList = state.toList();
-    currentList.remove(product);
-    emit(currentList);
+  void removeProduct(Product product) {
+    emit([...state]..remove(product));
+  }
+
+  bool isProductFavorite(Product product) {
+    return state.contains(product);
   }
 }
