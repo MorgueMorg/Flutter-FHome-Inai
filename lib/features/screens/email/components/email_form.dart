@@ -72,9 +72,9 @@ class _EmailFormState extends State<EmailForm> {
         showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            title: const Text('Ошибка'),
+            title: const Text('Error'),
             content: const Text(
-                'Неправильный код подтверждения. Пожалуйста, введите правильный код.'),
+                'Incorrect confirmation code. Please enter the correct code.'),
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(context),
@@ -87,7 +87,7 @@ class _EmailFormState extends State<EmailForm> {
     } catch (error) {
       // Обработка ошибки при подтверждении кода
       // ignore: avoid_print
-      print("Произошла ошибка при подтверждении кода: $error");
+      print("An error occurred while confirming the code: $error");
     }
   }
 
@@ -156,9 +156,9 @@ class _EmailFormState extends State<EmailForm> {
               ),
             ],
           ),
-          const SizedBox(height: 20),
+          SizedBox(height: getProportionateScreenHeight(50)),
           DefaultButton(
-            text: 'Продолжить',
+            text: 'Continue',
             press: () {
               verifyCodeAndNavigate(context);
             },

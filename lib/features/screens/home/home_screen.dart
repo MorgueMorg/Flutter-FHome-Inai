@@ -15,7 +15,7 @@ class HomeScreen extends StatelessWidget {
         iconTheme: const IconThemeData(
           color: lightPink,
         ),
-        title: const Text("Главная"),
+        title: const Text("Home"),
       ),
       body: const Body(),
       bottomNavigationBar:

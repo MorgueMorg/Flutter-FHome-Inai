@@ -18,13 +18,13 @@ class FetchBlocProducts extends StatelessWidget {
     return BlocBuilder<ProductFetchCubit, ProductFetchState>(
       builder: (context, state) {
         if (state is ProductFetchLoading) {
-          return const Text("Ожидание продуктов...");
+          return const Text("Waiting for products...");
         } else if (state is ProductFetchError) {
           return Text(state.failure.message);
         } else if (state is ProductFetchLoaded) {
           final postList = state.productList;
 
-          // ? Фильтрация списка продуктов с учетом поискового запроса
+          // ? Filtering the list of products based on the search query
           final filteredList = postList.where((product) {
             final title = product.title.toLowerCase();
             final description = product.description.toLowerCase();
@@ -38,7 +38,7 @@ class FetchBlocProducts extends StatelessWidget {
                   textAlign: TextAlign.center,
                 )
               : ListView.builder(
-                  // ? physics - отключает прокрутку дочернего листвью, чтобы прокручился только основной синглскролл вью, чтобы не было отдельной прокрутки на одном экранеч
+                  // ? physics - disables child scrolling so that only the main singlescroll view scrolls, so that there is no separate scrolling on a single screenh
                   physics: const NeverScrollableScrollPhysics(),
                   scrollDirection: Axis.vertical,
                   shrinkWrap: true,

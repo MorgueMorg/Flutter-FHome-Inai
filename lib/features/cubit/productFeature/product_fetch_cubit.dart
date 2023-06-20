@@ -13,7 +13,7 @@ class ProductFetchCubit extends Cubit<ProductFetchState> {
       : super(ProductFetchInitial());
 
   Future<void> fetchProductApi() async {
-    // ? Стягивание продуктов с бэка
+    // ? Pulling products off the backend
     emit(ProductFetchLoading());
     try {
       final List<Product>? productList = await apiRepository.getProductList();
@@ -29,7 +29,7 @@ class ProductFetchCubit extends Cubit<ProductFetchState> {
   Future<void> searchProducts(String query) async {
     emit(ProductFetchLoading());
     try {
-      // ? Поиск продуктов по запросу
+      // ? Search for products by query
       final List<Product>? productList =
           await apiRepository.searchProducts(query);
       emit(ProductFetchLoaded(productList: productList ?? []));

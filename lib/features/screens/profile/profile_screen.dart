@@ -12,7 +12,7 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Профиль"),
+        title: const Text("Profile"),
       ),
       body: const Body(),
       bottomNavigationBar: const CustomBottomNavBar(

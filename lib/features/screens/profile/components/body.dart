@@ -14,27 +14,27 @@ class Body extends StatelessWidget {
         const SizedBox(height: 20),
         ProfileMenu(
           icon: "assets/icons/User Icon.svg",
-          text: "Аккаунт",
+          text: "My Account",
           press: () {},
         ),
         ProfileMenu(
           icon: "assets/icons/Bell.svg",
-          text: "Уведомления",
+          text: "Notifications",
           press: () {},
         ),
         ProfileMenu(
           icon: "assets/icons/Settings.svg",
-          text: "Настройки",
+          text: "Settings",
           press: () {},
         ),
         ProfileMenu(
           icon: "assets/icons/Question mark.svg",
-          text: "Тех-поддержка",
+          text: "Help Center",
           press: () {},
         ),
         ProfileMenu(
           icon: "assets/icons/Log out.svg",
-          text: "Выйти",
+          text: "Log Out",
           press: () {
             Navigator.pushNamed(context, SplashScreen.routeName);
           },

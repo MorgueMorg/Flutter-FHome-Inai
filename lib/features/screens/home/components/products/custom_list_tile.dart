@@ -31,7 +31,7 @@ class CustomListTile extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            "${singlePost.price} сом",
+            "${singlePost.price} som",
             style: const TextStyle(
               color: darkPink,
               fontWeight: FontWeight.w700,

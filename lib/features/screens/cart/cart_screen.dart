@@ -26,7 +26,7 @@ class CartScreen extends StatelessWidget {
       title: const Column(
         children: [
           Text(
-            "Корзина",
+            "Cart",
             style: TextStyle(color: Colors.black),
           ),
         ],
@@ -80,7 +80,7 @@ class CheckOurCard extends StatelessWidget {
                 ),
                 const Spacer(),
                 Text(
-                  "Добавить КПП чек",
+                  "Add voucher code",
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
                 const SizedBox(width: 10),
@@ -103,10 +103,10 @@ class CheckOurCard extends StatelessWidget {
                     }
                     return Text.rich(
                       TextSpan(
-                        text: "Сумма:\n",
+                        text: "Total:\n",
                         children: [
                           TextSpan(
-                            text: "$totalAmount сом",
+                            text: "$totalAmount som",
                             style:
                                 const TextStyle(fontSize: 16, color: Colors.black),
                           ),
@@ -118,7 +118,7 @@ class CheckOurCard extends StatelessWidget {
                 SizedBox(
                   width: getProportionateScreenWidth(190),
                   child: DefaultButton(
-                    text: "Оформить заказ",
+                    text: "Check Out",
                     press: () {},
                   ),
                 ),

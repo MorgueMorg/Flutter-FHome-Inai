@@ -101,14 +101,14 @@ class _ProductDetailsBodyState extends State<ProductDetailsBody> {
                             SizedBox(
                               width: SizeConfig.screenWidth * 0.7,
                               child: DefaultButton(
-                                text: "Купить",
+                                text: "Buy",
                                 press: () {
                                   cartCubit.addProduct(product);
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     const SnackBar(
                                       backgroundColor: darkPink,
                                       content:
-                                          Text('Продукт добавлен в корзину'),
+                                          Text('Product added to cart'),
                                       duration: Duration(seconds: 1),
                                     ),
                                   );

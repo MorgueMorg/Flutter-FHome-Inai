@@ -1,5 +1,4 @@
 import 'package:fhome/features/screens/cart/cart_screen.dart';
-import 'package:fhome/features/screens/complete_profile/complete_profile_screen.dart';
 import 'package:fhome/features/screens/favorites/favorites_screen.dart';
 import 'package:fhome/features/screens/home/components/categories/categories_details.dart';
 import 'package:fhome/features/screens/notices/notices_screen.dart';
@@ -18,13 +17,12 @@ final Map<String, WidgetBuilder> routes = {
   SplashScreen.routeName: (context) => const SplashScreen(),
   SignInScreen.routeName: (context) => const SignInScreen(),
   SignUpScreen.routeName: (context) => const SignUpScreen(),
-  CompleteProfileScreen.routeName: (context) => const CompleteProfileScreen(),
   EmailScreen.routeName: (context) => const EmailScreen(),
   LoginSuccessScreen.routeName: (context) => const LoginSuccessScreen(),
   HomeScreen.routeName: (context) => const HomeScreen(),
   ForgotPasswordScreen.routeName: (context) => const ForgotPasswordScreen(),
   ProfileScreen.routeName: (context) => const ProfileScreen(),
-  // ! Просит productId, но тоже ни на что не влияет
+  // ! It asks for productId, but it doesn't affect anything either
   ProductDetailsScreen.routeName: (context) =>
       const ProductDetailsScreen(productId: 1),
   CategoryDetails.routeName: (context) => CategoryDetails(

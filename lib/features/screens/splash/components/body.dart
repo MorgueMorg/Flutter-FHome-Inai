@@ -31,7 +31,7 @@ class _BodyState extends State<Body> {
               ),
             ),
             const Text(
-              "Добро пожаловать в FHOME, \nдавайте делать покупки!",
+              "Welcome to FHOME, Let's shop!",
               textAlign: TextAlign.center,
               style: TextStyle(color: darkPink),
             ),
@@ -45,7 +45,7 @@ class _BodyState extends State<Body> {
             SizedBox(
               width: getProportionateScreenWidth(190),
               child: DefaultButton(
-                text: "Продолжить",
+                text: "Continue",
                 press: () {
                   Navigator.pushNamed(context, SignInScreen.routeName);
                 },

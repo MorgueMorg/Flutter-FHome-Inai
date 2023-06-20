@@ -13,7 +13,7 @@ class Body extends StatelessWidget {
           Image.asset("assets/images/notices.gif",
               height: 250, width: 250, fit: BoxFit.cover),
           const Text(
-            "Уведомлений нет",
+            "No notifications",
             style: TextStyle(fontSize: 26, fontWeight: FontWeight.w400),
           ),
         ],

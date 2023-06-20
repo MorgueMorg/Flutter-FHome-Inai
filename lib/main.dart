@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => ProductDetailsCubit(),
-          // ! Просит аргумент, но он ни на что не влияет.
+          // ! Asking for an argument, but it doesn't affect anything.
           child: const ProductDetailsScreen(productId: 0),
         ),
         BlocProvider<CartCubit>(
@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
+        title: 'FHome',
         theme: theme(),
         initialRoute: SplashScreen.routeName,
         routes: routes,

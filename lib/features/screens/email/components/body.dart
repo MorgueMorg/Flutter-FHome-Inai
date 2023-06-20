@@ -18,13 +18,13 @@ class Body extends StatelessWidget {
             children: [
               SizedBox(height: SizeConfig.screenHeight * 0.05), // 10%
               Text(
-                "Подтверждение почты",
+                "Email Confirmation",
                 textAlign: TextAlign.center,
                 style: headingStyle,
               ),
               SizedBox(height: SizeConfig.screenHeight * 0.01),
               const Text(
-                "Мы отправили ваш код по адресу *******@gmail.com.",
+                "We sent the code to the mail you specified ",
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: SizeConfig.screenHeight * 0.01),
@@ -37,7 +37,7 @@ class Body extends StatelessWidget {
                   // resend Email code
                 },
                 child: const Text(
-                  "Отправить код повторно",
+                  "Resend code",
                   style: TextStyle(decoration: TextDecoration.underline),
                 ),
               )
@@ -52,7 +52,7 @@ class Body extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text("Срок действия этого кода истекает через "),
+        const Text("This code expires in "),
         TweenAnimationBuilder(
           tween: Tween(begin: 60.0, end: 0),
           duration: const Duration(seconds: 60), // because we allow user 30s

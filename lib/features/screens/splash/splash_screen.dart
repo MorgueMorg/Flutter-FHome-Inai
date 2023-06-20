@@ -9,7 +9,7 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // You have to call it on your starting screen
-    // ! ВЫЗОВИ ЭТОТ МЕТОД ИДИОТ
+    // ! CALL THIS METHOD IDIOT
     SizeConfig().init(context);
     return const Scaffold(
       body: Body(),

@@ -21,12 +21,12 @@ class Body extends StatelessWidget {
               return state.isEmpty
                   ? const Center(
                       child: Text(
-                        'Корзина пуста',
+                        'Cart is empty',
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.bold),
                       ),
                     )
-                  // ? Если корзина не пустая
+                  // ? If the cart is not empty
                   : Expanded(
                       child: ListView.builder(
                         shrinkWrap: true,
@@ -61,7 +61,7 @@ class Body extends StatelessWidget {
                               ),
                               title: Text(product.title),
                               subtitle: Text(
-                                "${product.price} сом",
+                                "${product.price} som",
                                 style: const TextStyle(
                                     color: darkPink,
                                     fontWeight: FontWeight.w700,

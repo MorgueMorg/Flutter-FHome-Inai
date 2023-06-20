@@ -42,7 +42,7 @@ class HomeHeader extends StatelessWidget {
           ),
           IconBtnWithCounter(
             svgSrc: "assets/icons/Bell.svg",
-            // В будущем реализую функционал уведомлений, возможно с firebase
+            // In the future I will implement notification functionality, perhaps with firebase
             numOfItems: 0,
             press: () {
               Navigator.pushNamed(context, NoticesScreen.routeName);

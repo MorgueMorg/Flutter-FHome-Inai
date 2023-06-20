@@ -137,24 +137,24 @@ class _SignUpFormState extends State<SignUpForm> {
             onSaved: (newValue) => email = newValue,
             onChanged: (value) {
               if (value.isNotEmpty) {
-                removeError(error: "Введите вашу почту");
+                removeError(error: "Enter your password");
               } else if (emailValidatorRegExp.hasMatch(value)) {
-                removeError(error: "Неверный формат почты");
+                removeError(error: "Incorrect email format");
               }
             },
             validator: (value) {
               if (value!.isEmpty) {
-                addError(error: "Введите вашу почту");
+                addError(error: "Enter your password");
                 return "";
               } else if (!emailValidatorRegExp.hasMatch(value)) {
-                addError(error: "Неверный формат почты");
+                addError(error: "Incorrect email format");
                 return "";
               }
               return null;
             },
             decoration: const InputDecoration(
-              labelText: "Почта",
-              hintText: "Введите вашу почту",
+              labelText: "Email",
+              hintText: "Enter your email",
               floatingLabelBehavior: FloatingLabelBehavior.always,
             ),
           ),
@@ -165,14 +165,14 @@ class _SignUpFormState extends State<SignUpForm> {
             onSaved: (newValue) => password = newValue,
             onChanged: (value) {
               if (value.isNotEmpty) {
-                removeError(error: "Введите ваш пароль");
+                removeError(error: "Enter your password");
               } else if (value.length >= 8) {
-                removeError(error: "Пароль слишком короткий");
+                removeError(error: "Password is too short");
               }
             },
             validator: (value) {
               if (value!.isEmpty) {
-                addError(error: "Введите ваш пароль");
+                addError(error: "Enter your password");
                 return "";
               } else if (value.length < 8) {
                 addError(error: "Пароль слишком короткий");
@@ -181,8 +181,8 @@ class _SignUpFormState extends State<SignUpForm> {
               return null;
             },
             decoration: const InputDecoration(
-              labelText: "Пароль",
-              hintText: "Введите ваш пароль",
+              labelText: "Password",
+              hintText: "Enter your password",
               floatingLabelBehavior: FloatingLabelBehavior.always,
             ),
           ),
@@ -193,25 +193,25 @@ class _SignUpFormState extends State<SignUpForm> {
             onSaved: (newValue) => confirmPassword = newValue,
             onChanged: (value) {
               if (value.isNotEmpty) {
-                removeError(error: "Подтвердите ваш пароль");
+                removeError(error: "Confirm your password");
               } else if (value.isNotEmpty &&
                   value == _passwordController.text) {
-                removeError(error: "Пароли не совпадают");
+                removeError(error: "Passwords do not match");
               }
             },
             validator: (value) {
               if (value!.isEmpty) {
-                addError(error: "Подтвердите ваш пароль");
+                addError(error: "Confirm your password");
                 return "";
               } else if (value != _passwordController.text) {
-                addError(error: "Пароли не совпадают");
+                addError(error: "Passwords do not match");
                 return "";
               }
               return null;
             },
             decoration: const InputDecoration(
-              labelText: "Подтверждение пароля",
-              hintText: "Подтвердите ваш пароль",
+              labelText: "Confirm password",
+              hintText: "Confirm your password",
               floatingLabelBehavior: FloatingLabelBehavior.always,
             ),
           ),
@@ -221,19 +221,19 @@ class _SignUpFormState extends State<SignUpForm> {
             onSaved: (newValue) => fullName = newValue,
             onChanged: (value) {
               if (value.isNotEmpty) {
-                removeError(error: "Введите ваше имя");
+                removeError(error: "Enter your fullname");
               }
             },
             validator: (value) {
               if (value!.isEmpty) {
-                addError(error: "Введите ваше полное имя");
+                addError(error: "Enter your fullname");
                 return "";
               }
               return null;
             },
             decoration: const InputDecoration(
-              labelText: "Имя",
-              hintText: "Введите ваше имя",
+              labelText: "Name",
+              hintText: "Enter your fullname",
               floatingLabelBehavior: FloatingLabelBehavior.always,
             ),
           ),
@@ -243,19 +243,19 @@ class _SignUpFormState extends State<SignUpForm> {
             onSaved: (newValue) => birthday = newValue,
             onChanged: (value) {
               if (value.isNotEmpty) {
-                removeError(error: "Введите ваш день рождения");
+                removeError(error: "Enter your date of birth");
               }
             },
             validator: (value) {
               if (value!.isEmpty) {
-                addError(error: "Введите вашу дату рождения");
+                addError(error: "Enter your date of birth");
                 return "";
               }
               return null;
             },
             decoration: const InputDecoration(
-              labelText: "Дата Рождения",
-              hintText: "ДД/ММ/ГГГГ",
+              labelText: "Birth Date",
+              hintText: "DD/MM/YYYY",
               floatingLabelBehavior: FloatingLabelBehavior.always,
             ),
           ),
@@ -265,19 +265,19 @@ class _SignUpFormState extends State<SignUpForm> {
             onSaved: (newValue) => phone = newValue,
             onChanged: (value) {
               if (value.isNotEmpty) {
-                removeError(error: "Введите ваш номер");
+                removeError(error: "Enter your phone number");
               }
             },
             validator: (value) {
               if (value!.isEmpty) {
-                addError(error: "Номер телефона не может быть пустым");
+                addError(error: "The phone number cannot be empty");
                 return "";
               }
               return null;
             },
             decoration: const InputDecoration(
-              labelText: "Номер Телефона",
-              hintText: "Введите ваш номер телефона",
+              labelText: "Phone Number",
+              hintText: "Enter your phone number",
               floatingLabelBehavior: FloatingLabelBehavior.always,
             ),
           ),
@@ -287,26 +287,27 @@ class _SignUpFormState extends State<SignUpForm> {
             onSaved: (newValue) => userInfo = newValue,
             onChanged: (value) {
               if (value.isNotEmpty) {
-                removeError(error: "Введите корректное описание вашей фирмы");
+                removeError(
+                    error: "Enter a correct description of your company");
               }
             },
             validator: (value) {
               if (value!.isEmpty) {
-                addError(error: "Описание не может быть пустым");
+                addError(error: "The description cannot be empty");
                 return "";
               }
               return null;
             },
             decoration: const InputDecoration(
-              labelText: "Дополнительно",
-              hintText: "Введите описание вашей фирмы",
+              labelText: "Additionally",
+              hintText: "Enter your company description",
               floatingLabelBehavior: FloatingLabelBehavior.always,
             ),
           ),
           FormError(errors: errors),
           SizedBox(height: getProportionateScreenHeight(40)),
           DefaultButton(
-            text: "Продолжить",
+            text: "Continue",
             press: _register,
           ),
         ],

@@ -27,7 +27,7 @@ class CategoryDetailsBody extends StatelessWidget {
 
         if (snapshot.hasError) {
           return const Center(
-            child: Text('Не получилось загрузить продукты'),
+            child: Text('Failed to load products'),
           );
         }
 
@@ -49,7 +49,7 @@ class CategoryDetailsBody extends StatelessWidget {
                 ),
               ),
               trailing: Text(
-                "${product.price} сом",
+                "${product.price} som",
                 style: const TextStyle(
                     color: darkPink, fontWeight: FontWeight.w700, fontSize: 16),
               ),

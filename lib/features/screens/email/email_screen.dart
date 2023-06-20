@@ -1,4 +1,3 @@
-import 'package:fhome/components/size_config.dart';
 import 'package:fhome/features/screens/email/components/body.dart';
 import 'package:flutter/material.dart';
 
@@ -9,10 +8,9 @@ class EmailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Подтверждение почты"),
+        title: const Text("Email Confirmation"),
       ),
       body: const Body(),
     );

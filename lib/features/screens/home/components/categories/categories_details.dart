@@ -30,7 +30,7 @@ class _CategoryDetailsState extends State<CategoryDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Выберите продукт"),
+        title: const Text("Choose a product"),
       ),
       body: Column(
         children: [

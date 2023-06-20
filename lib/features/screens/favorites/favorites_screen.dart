@@ -11,7 +11,7 @@ class FavoritesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Избранное"),
+        title: const Text("Favorites"),
       ),
       body: const Body(),
       bottomNavigationBar: const CustomBottomNavBar(

@@ -13,7 +13,7 @@ class Body extends StatelessWidget {
       builder: (context, state) {
         return state.isEmpty
             ? const Center(
-                child: Text("Вы ничего не добавили в избранное"),
+                child: Text("You have not added anything to favorites"),
               )
             : ListView.builder(
                 itemCount: state.length,

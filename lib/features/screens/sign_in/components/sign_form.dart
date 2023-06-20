@@ -62,13 +62,13 @@ class _SignFormState extends State<SignForm> {
                   });
                 },
               ),
-              const Text("Запомнить меня"),
+              const Text("Remember me"),
               const Spacer(),
               GestureDetector(
                 onTap: () => Navigator.pushNamed(
                     context, ForgotPasswordScreen.routeName),
                 child: const Text(
-                  "Забыл пароль",
+                  "Forgot Password",
                   style: TextStyle(decoration: TextDecoration.underline),
                 ),
               )
@@ -77,7 +77,7 @@ class _SignFormState extends State<SignForm> {
           FormError(errors: errors),
           SizedBox(height: getProportionateScreenHeight(20)),
           DefaultButton(
-            text: "Продолжить",
+            text: "Continue",
             press: () {
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save();
@@ -112,8 +112,8 @@ class _SignFormState extends State<SignForm> {
         return null;
       },
       decoration: const InputDecoration(
-        labelText: "Пароль",
-        hintText: "Введите ваш пароль",
+        labelText: "Password",
+        hintText: "Enter your password",
         floatingLabelBehavior: FloatingLabelBehavior.always,
       ),
     );
@@ -141,8 +141,8 @@ class _SignFormState extends State<SignForm> {
         return null;
       },
       decoration: const InputDecoration(
-        labelText: "Почта",
-        hintText: "Введите вашу почту",
+        labelText: "Email",
+        hintText: "Enter your email",
         floatingLabelBehavior: FloatingLabelBehavior.always,
       ),
     );
@@ -160,7 +160,7 @@ class _SignFormState extends State<SignForm> {
       // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-            content: Text("Ошибка авторизации"), backgroundColor: darkPink),
+            content: Text("Authorization error"), backgroundColor: darkPink),
       );
     }
   }
