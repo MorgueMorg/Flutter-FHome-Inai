@@ -94,7 +94,7 @@ class _SignUpFormState extends State<SignUpForm> {
     }
   }
 
-  // TODO
+  // ignore: unused_element
   Future<bool> _sendRegistrationRequest(
       RegistrationModel registrationModel) async {
     try {
@@ -255,7 +255,7 @@ class _SignUpFormState extends State<SignUpForm> {
             },
             decoration: const InputDecoration(
               labelText: "Дата Рождения",
-              hintText: "Введите вашу дату рождения",
+              hintText: "ДД/ММ/ГГГГ",
               floatingLabelBehavior: FloatingLabelBehavior.always,
             ),
           ),
