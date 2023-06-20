@@ -4,23 +4,28 @@
 
 <h2 align="center"> Preview </h2>
 
-<h1 align="center"> Splash/SignIn/Errors Screens </h1>
+<h3 align="center"> Splash/SignIn/Errors Screens </h3>
+
 | ![screen1](/assets/results/splash.png) | ![screen2](/assets/results/crypto_coin_screen.png) | ![screen3](/assets/results/talker_screen.png) |
 | :------------: | :------------: | :------------: |
 
-<h1 align="center"> LoginSuccess/ForgotPassword/SignUp Screens </h1>
+<h3 align="center"> LoginSuccess/ForgotPassword/SignUp Screens </h3>
+
 | ![screen1](/assets/results/login_success.png) | ![screen2](/assets/results/forgot_password.png) | ![screen3](/assets/results/sign_up.png) |
 | :------------: | :------------: | :------------: |
 
-<h1 align="center"> EmailOTP/Home/Search Screens </h1>
+<h3 align="center"> EmailOTP/Home/Search Screens </h3>
+
 | ![screen1](/assets/results/email_otp.png) | ![screen2](/assets/results/home.png) | ![screen3](/assets/results/search.png) |
 | :------------: | :------------: | :------------: |
 
-<h1 align="center"> ProductDetails/Categories/Favorites Screens </h1>
+<h3 align="center"> ProductDetails/Categories/Favorites Screens </h3>
+
 | ![screen1](/assets/results/details.png) | ![screen2](/assets/results/categories.png) | ![screen3](/assets/results/favorites.png) |
 | :------------: | :------------: | :------------: |
 
-<h1 align="center"> Cart/Notifications/Profile Screens </h1>
+<h3 align="center"> Cart/Notifications/Profile Screens </h3>
+
 | ![screen1](/assets/results/cart.png) | ![screen2](/assets/results/notices.png) | ![screen3](/assets/results/profile.png) |
 | :------------: | :------------: | :------------: |
 
