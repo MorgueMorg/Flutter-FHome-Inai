@@ -1,6 +1,9 @@
 <h1 align="center"> FHome </h1>
 
-<p align="center"> FHome was conceived as a platform for home baking, with the ability to post your products and buy someone else's, as well as to connect baking vendors. It is essentially the equivalent of a mobile e-commerce app. It is still in development. [eng](https://github.com/MorgueMorg/Flutter-FHome-Inai/tree/fhome/eng) / [rus](https://github.com/MorgueMorg/Flutter-FHome-Inai/tree/fhome/rus) versions </p>
+<p align="center"> FHome was conceived as a platform for home baking, with the ability to post your products and buy someone else's, as well as to connect baking vendors. It is essentially the equivalent of a mobile e-commerce app. It is still in development. </p>
+
+* Full English version - https://github.com/MorgueMorg/Flutter-FHome-Inai/tree/fhome/eng (second branch)
+* Full Russian version - https://github.com/MorgueMorg/Flutter-FHome-Inai/tree/fhome/rus (third branch)
 
 <h2 align="center"> Preview </h2>
 
