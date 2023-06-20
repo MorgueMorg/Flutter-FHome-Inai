@@ -1,18 +1,16 @@
 # fhome
 
-A new Flutter project.
+| ![screen1](/assets/results/splash.png) | ![screen2](/assets/results/sign_in.png) | ![screen3](/assets/results/login_errors.png) |
+| :------------: | :------------: | :------------: |
 
-## Getting Started
+| ![screen1](/assets/results/login_success.png) | ![screen2](/assets/results/forgot_password.png) | ![screen3](/assets/results/sign_up.png) |
+| :------------: | :------------: | :------------: |
 
-| ![screen1](/assets/result/resmain.gif) |
+| ![screen1](/assets/results/email_otp.png) | ![screen2](/assets/results/home.png) | ![screen3](/assets/results/search.png) |
+| :------------: | :------------: | :------------: |
 
-This project is a starting point for a Flutter application.
+| ![screen1](/assets/results/details.png) | ![screen2](/assets/results/categories.png) | ![screen3](/assets/results/favorites.png) |
+| :------------: | :------------: | :------------: |
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+| ![screen1](/assets/results/cart.png) | ![screen2](/assets/results/notices.png) | ![screen3](/assets/results/profile.png) |
+| :------------: | :------------: | :------------: |
