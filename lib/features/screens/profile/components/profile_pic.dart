@@ -1,3 +1,5 @@
+import 'package:fhome/components/constants.dart';
+import 'package:fhome/components/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -15,11 +17,14 @@ class ProfilePic extends StatelessWidget {
         fit: StackFit.expand,
         clipBehavior: Clip.none,
         children: [
-          const CircleAvatar(
-            backgroundImage: NetworkImage(
-                'https://res.cloudinary.com/dikdiq3lk/image/upload/v1684778804/2287e312-a611-4f2e-903b-9ead639b46fd.jpg'),
-            // backgroundImage: NetworkImage(
-            //     'https://img.i-scmp.com/cdn-cgi/image/fit=contain,width=425,format=auto/sites/default/files/styles/768x768/public/d8/images/methode/2020/04/09/0dec21b2-7a1c-11ea-9b24-e7152d1bf921_image_hires_181817.jpg?itok=xAg_QXKq&v=1586427505'),
+          CircleAvatar(
+            backgroundColor: Colors.white,
+            child: Image.asset(
+              "assets/icons/avatar.png",
+              color: lightPink,
+              width: getProportionateScreenWidth(80),
+              height: getProportionateScreenHeight(80),
+            ),
           ),
           Positioned(
             right: -12,

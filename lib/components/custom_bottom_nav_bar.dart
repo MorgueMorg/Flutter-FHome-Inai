@@ -1,4 +1,5 @@
 import 'package:fhome/components/constants.dart';
+import 'package:fhome/features/screens/favorites/favorites_screen.dart';
 import 'package:fhome/features/screens/home/home_screen.dart';
 import 'package:fhome/features/screens/profile/profile_screen.dart';
 import 'package:fhome/components/menu_enums.dart';
@@ -45,9 +46,11 @@ class CustomBottomNavBar extends StatelessWidget {
                       : inActiveIconColor),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, FavoritesScreen.routeName);
+              },
               icon: SvgPicture.asset("assets/icons/Heart Icon.svg",
-                  color: MenuState.favourite == selectedMenu
+                  color: MenuState.favorites == selectedMenu
                       ? lightPink
                       : inActiveIconColor),
             ),

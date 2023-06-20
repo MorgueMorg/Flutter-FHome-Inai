@@ -18,7 +18,6 @@ dependencies:
   equatable: ^2.0.3
   dio: ^4.0.4
   http: ^1.0.0
-  # dob_input_field: ^2.0.0
 
 dev_dependencies:
   flutter_test:

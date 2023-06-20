@@ -29,7 +29,7 @@ class _SignUpFormState extends State<SignUpForm> {
   String? birthday;
   String? phone;
   String? userInfo;
-  // String? confirmPassword;
+  String? confirmPassword;
   final List<String?> errors = [];
 
   final RegistrationService _registrationService = RegistrationService();
@@ -94,7 +94,7 @@ class _SignUpFormState extends State<SignUpForm> {
     }
   }
 
-  // TODO
+  // ignore: unused_element
   Future<bool> _sendRegistrationRequest(
       RegistrationModel registrationModel) async {
     try {
@@ -187,34 +187,34 @@ class _SignUpFormState extends State<SignUpForm> {
             ),
           ),
           SizedBox(height: getProportionateScreenHeight(30)),
-          // TextFormField(
-          //   obscureText: true,
-          //   controller: _confirmPasswordController,
-          //   onSaved: (newValue) => confirmPassword = newValue,
-          //   onChanged: (value) {
-          //     if (value.isNotEmpty) {
-          //       removeError(error: "Подтвердите ваш пароль");
-          //     } else if (value.isNotEmpty &&
-          //         value == _passwordController.text) {
-          //       removeError(error: "Пароли не совпадают");
-          //     }
-          //   },
-          //   validator: (value) {
-          //     if (value!.isEmpty) {
-          //       addError(error: "Подтвердите ваш пароль");
-          //       return "";
-          //     } else if (value != _passwordController.text) {
-          //       addError(error: "Пароли не совпадают");
-          //       return "";
-          //     }
-          //     return null;
-          //   },
-          //   decoration: const InputDecoration(
-          //     labelText: "Подтверждение пароля",
-          //     hintText: "Подтвердите ваш пароль",
-          //     floatingLabelBehavior: FloatingLabelBehavior.always,
-          //   ),
-          // ),
+          TextFormField(
+            obscureText: true,
+            controller: _confirmPasswordController,
+            onSaved: (newValue) => confirmPassword = newValue,
+            onChanged: (value) {
+              if (value.isNotEmpty) {
+                removeError(error: "Подтвердите ваш пароль");
+              } else if (value.isNotEmpty &&
+                  value == _passwordController.text) {
+                removeError(error: "Пароли не совпадают");
+              }
+            },
+            validator: (value) {
+              if (value!.isEmpty) {
+                addError(error: "Подтвердите ваш пароль");
+                return "";
+              } else if (value != _passwordController.text) {
+                addError(error: "Пароли не совпадают");
+                return "";
+              }
+              return null;
+            },
+            decoration: const InputDecoration(
+              labelText: "Подтверждение пароля",
+              hintText: "Подтвердите ваш пароль",
+              floatingLabelBehavior: FloatingLabelBehavior.always,
+            ),
+          ),
           SizedBox(height: getProportionateScreenHeight(40)),
           TextFormField(
             keyboardType: TextInputType.text,
@@ -226,7 +226,7 @@ class _SignUpFormState extends State<SignUpForm> {
             },
             validator: (value) {
               if (value!.isEmpty) {
-                addError(error: "Введите ваше имя");
+                addError(error: "Введите ваше полное имя");
                 return "";
               }
               return null;
@@ -248,14 +248,14 @@ class _SignUpFormState extends State<SignUpForm> {
             },
             validator: (value) {
               if (value!.isEmpty) {
-                addError(error: "Введите ваше рождение");
+                addError(error: "Введите вашу дату рождения");
                 return "";
               }
               return null;
             },
             decoration: const InputDecoration(
-              labelText: "Дата",
-              hintText: "Введите рождения",
+              labelText: "Дата Рождения",
+              hintText: "ДД/ММ/ГГГГ",
               floatingLabelBehavior: FloatingLabelBehavior.always,
             ),
           ),
@@ -270,14 +270,14 @@ class _SignUpFormState extends State<SignUpForm> {
             },
             validator: (value) {
               if (value!.isEmpty) {
-                addError(error: "Введите ваше номер");
+                addError(error: "Номер телефона не может быть пустым");
                 return "";
               }
               return null;
             },
             decoration: const InputDecoration(
-              labelText: "Номер",
-              hintText: "Телефона",
+              labelText: "Номер Телефона",
+              hintText: "Введите ваш номер телефона",
               floatingLabelBehavior: FloatingLabelBehavior.always,
             ),
           ),
@@ -287,19 +287,19 @@ class _SignUpFormState extends State<SignUpForm> {
             onSaved: (newValue) => userInfo = newValue,
             onChanged: (value) {
               if (value.isNotEmpty) {
-                removeError(error: "Введите инфу");
+                removeError(error: "Введите корректное описание вашей фирмы");
               }
             },
             validator: (value) {
               if (value!.isEmpty) {
-                addError(error: "Введите ваше инфу");
+                addError(error: "Описание не может быть пустым");
                 return "";
               }
               return null;
             },
             decoration: const InputDecoration(
-              labelText: "инфа",
-              hintText: "Введите ваше инфа",
+              labelText: "Дополнительно",
+              hintText: "Введите описание вашей фирмы",
               floatingLabelBehavior: FloatingLabelBehavior.always,
             ),
           ),

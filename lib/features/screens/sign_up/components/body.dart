@@ -50,7 +50,8 @@ class Body extends StatelessWidget {
               const Text(
                 "Продолжая, вы подтверждаете, что согласны \n с нашими условиями и положениями.",
                 textAlign: TextAlign.center,
-              )
+              ),
+              SizedBox(height: SizeConfig.screenHeight * 0.07),
             ],
           ),
         ),
