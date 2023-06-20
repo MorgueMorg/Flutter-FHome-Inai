@@ -6,7 +6,7 @@
 
 <h3 align="center"> Splash/SignIn/Errors Screens </h3>
 
-| ![screen1](/assets/results/splash.png) | ![screen2](/assets/results/crypto_coin_screen.png) | ![screen3](/assets/results/talker_screen.png) |
+| ![screen1](/assets/results/splash.png) | ![screen2](/assets/results/sign_in.png) | ![screen3](/assets/results/login_errors.png) |
 | :------------: | :------------: | :------------: |
 
 <h3 align="center"> LoginSuccess/ForgotPassword/SignUp Screens </h3>
