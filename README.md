@@ -20,8 +20,7 @@
 | ![screen1](/assets/results/details.png) | ![screen2](/assets/results/categories.png) | ![screen3](/assets/results/favorites.png) |
 | :------------: | :------------: | :------------: |
 
-| :------------: | :------------: | :------------: |
-| Cart | Notices | Profile |
+<h1 align="center"> Cart/Notifications/Profile Screens </h1>
 | ![screen1](/assets/results/cart.png) | ![screen2](/assets/results/notices.png) | ![screen3](/assets/results/profile.png) |
 | :------------: | :------------: | :------------: |
 
