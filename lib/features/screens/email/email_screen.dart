@@ -10,6 +10,7 @@ class EmailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: const Text("Подтверждение почты"),
       ),
       body: const Body(),

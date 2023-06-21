@@ -9,6 +9,7 @@ class LoginSuccessScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         // Leading removes arrow back
         leading: const SizedBox(),
         title: const Text("Вход прошел успешно"),

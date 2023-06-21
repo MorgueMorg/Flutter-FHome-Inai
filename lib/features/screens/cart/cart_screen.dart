@@ -15,22 +15,19 @@ class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(context),
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Column(
+          children: [
+            Text(
+              "Корзина",
+              style: TextStyle(color: Colors.black),
+            ),
+          ],
+        ),
+      ),
       body: const Body(),
       bottomNavigationBar: const CheckOurCard(),
-    );
-  }
-
-  AppBar buildAppBar(BuildContext context) {
-    return AppBar(
-      title: const Column(
-        children: [
-          Text(
-            "Корзина",
-            style: TextStyle(color: Colors.black),
-          ),
-        ],
-      ),
     );
   }
 }
@@ -107,8 +104,8 @@ class CheckOurCard extends StatelessWidget {
                         children: [
                           TextSpan(
                             text: "$totalAmount сом",
-                            style:
-                                const TextStyle(fontSize: 16, color: Colors.black),
+                            style: const TextStyle(
+                                fontSize: 16, color: Colors.black),
                           ),
                         ],
                       ),
